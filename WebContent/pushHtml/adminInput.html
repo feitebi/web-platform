@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>币大师 -- 比特币投资好帮手</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="../assets/styles/app.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<div class="app" id="app">
+	<div class="p-a-md dker _600">
+        	<span>管理员一号</span>
+        </div>
+	<div class="p-a-md" style="margin-left:18%;" >
+		<div class="form-group row" >
+      	<div class="col-sm-10" >
+        <span>
+        	<input id="rechargeName" type="text" class="form-control rounded" style="float:left;width:200px;height:40px;" placeholder="姓名">
+        	<input id="rechargeCode" type="text" class="form-control rounded" style="float:left;width:200px;height:40px;margin-left: 50px;" placeholder="code">
+        	<input id="rechargeAmount" type="number" value="" class="form-control rounded" style="float:left;width:200px;height:40px;margin-left: 50px;" placeholder="金额">
+        	<button onclick="showRechargeList()" class="btn btn-outline rounded b-primary text-primary" style="margin-left: 50px;">查询</button>
+        </span>
+     	</div>
+   		</div>
+      </div> 
+	  <div id="main" >
+      <div id="left" class="col-sm-6" style="height:300px;width:60%;overflow-y:auto;margin-left:20%;">
+       <div class="box" >
+        <div class="box-header">
+          <h2>用户支付信息</h2>
+        </div>
+        <table class="table table-striped b-t" style="width:100%;">
+          <thead>
+            <tr>
+            <th>用户名</th>
+			<th>手机号</th>
+			<th>6位码</th>
+			<th>时间</th>
+			<th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="rechargeList">
+          </tbody>
+        </table>
+      </div>
+      </div>
+      </div>
+      <!-- modal -->
+	<div id="OkFillModal" class="modal fade" data-backdrop="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h5 class="modal-title">确认充值</h5>
+      </div>
+     	 <div class="modal-body text-center p-lg" style="height:300px;">
+                <input type="hidden" id="wid"/>
+        <div class="md-form-group"  style="margin-top:0px;">
+         <input id="fillid" type="hidden">
+ 				<input id="fillid" type="hidden">
+ 			 	<input id="filluserid" type="hidden">
+ 			 	<input id="fillamount" type="hidden">	
+         	<label id="FillAmountMsg" class='pull-right'></label>
+             <input type="number" id="FillAmount" onkeyup="checkFill()"  class="md-input" >
+               <label>充值金额</label>
+        </div>
+        <div class="md-form-group"  style="margin-top:0px;">
+        	 <label id="FillSerialMsg" class='pull-right'></label>
+             <input id="serial"  class="md-input" onkeyup="checkFill()" />
+             <label>流水号</label>
+        </div>
+         <button id="surefillbutton" onclick="OkFill()" class="btn btn-outline rounded b-primary text-primary">确认充值</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">关闭</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+</div>
+<!-- build:js ././scripts/app.html.js -->
+<!-- jQuery -->
+<script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+<script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../libs/js/echarts/build/dist/echarts-all.js"></script>
+<script src="./scripts/ui-device.js"></script>
+<script src="./scripts/ui-form.js"></script>
+<script src="./scripts/ui-nav.js"></script>
+<script src="./scripts/common.js"></script>
+<script type="text/javascript">
+$(function() {
+	
+});
+</script>
+</body>
+</html>

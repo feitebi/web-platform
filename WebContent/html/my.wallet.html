@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>飞特币 -- 比特币投资好帮手</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="./logo/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <link rel="shortcut icon" sizes="196x196" href="./logo/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="../assets/styles/app.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+  <style>
+    .topTable tbody {
+      display:block;
+      height:450px;
+      overflow-y:scroll;
+    }
+    
+    .topTable thead, .topTable tbody tr {
+      display:table;
+      width:100%;
+      table-layout:fixed;
+    }
+    
+    .topTable thead {
+      width: calc( 100% - 1em )
+    }
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+
+   <!-- ############ LAYOUT START-->
+
+        <!-- aside -->
+        <div id="aside" class="app-aside modal navside folded show-text w-xs">
+         <!-- fluid app aside -->
+         <div class="left navside dark" layout="column">
+           <div class="navbar no-radius">
+            <!-- brand -->
+            <a class="navbar-brand">
+             <img src="./logo/logo.png" alt=".">
+             <span class="hidden-folded inline text-muted">飞特币</span>
+           </a>
+           <!-- / brand -->
+         </div>
+         <div flex class="hide-scroll">
+          <nav class="scroll nav-light">
+
+            <ul class="nav" ui-nav>
+              <li class="nav-header hidden-folded">
+                <small class="text-muted">主要</small>
+              </li>
+
+              <li >
+                <a href="index.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe3ea;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">资产</span>
+                </a>
+              </li>
+               <li>
+                <a href="trade.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe24b;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">行情</span>
+                </a>
+              </li>
+               <li >
+                <a href="my.api.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe84f;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">交易所</span>
+                </a>
+              </li>
+              <li>
+                <a href="master.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe7fc;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">大师</span>
+                </a>
+              </li>
+               <li>
+                <a href="smartOrder.html">
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-label">
+                    <b class="label rounded label-sm primary"></b>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe896;
+                      <span ui-include="'../assets/images/i_1.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">订单</span>
+                </a>
+                <ul class="nav-sub">
+                  <li>
+                    <a>
+                      <span class="nav-text">自动买卖</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="order.history.html" >
+                      <span class="nav-text">订单历史</span>
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+              <li class="primary">
+                <a href="my.account.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8e8;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">帐户</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" >
+                 <span class="nav-icon">
+                  <i class="material-icons">&#xe8fd;
+                    <span ui-include="'../assets/images/i_0.svg'"></span>
+                  </i>
+                </span>
+                <span class="nav-text">帮助</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+      <div flex-no-shrink class="b-t">
+        <div class="nav-fold">
+         <a onclick="logOut()" >
+           <span class="nav-icon">
+            <i class="material-icons">&#xe8ac;
+              <span ui-include="'../assets/images/i_0.svg'"></span>
+            </i>
+          </span>
+          <span class="nav-text">退出</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / -->
+
+<!-- content -->
+<div id="content" class="app-content box-shadow-z0" role="main">
+  <div class="app-header white box-shadow">
+    <div class="navbar">
+      <!-- Open side - Naviation on mobile -->
+      <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up">
+        <i class="material-icons">&#xe5d2;</i>
+      </a>
+      <!-- / -->
+      
+      <!-- Page title - Bind to $state's title -->
+      <div class="navbar-item pull-left h5" ng-bind="$state.current.data.title" id="pageTitle">我的钱包</div>
+      
+      <!-- navbar right -->
+     
+    <!-- / navbar right -->
+    
+    <!-- navbar collapse -->
+    
+    <!-- / navbar collapse -->
+  </div>
+</div>
+<div class="app-footer">
+    <div class="p-a text-sm">
+      <div class="pull-right text-muted">
+        &copy; Copyright <strong>飞特币</strong> <span class="hidden-xs-down">v0.1.1</span>
+        <a ui-scroll-to="content"><i class="fa fa-long-arrow-up p-x-sm"></i></a>
+      </div>
+      <div class="nav p-l-sm">
+        <a class="nav-link" href="about.html">关于我们</a> 
+        <a class="nav-link p-l-sm" href="contact.html">在线客服</a>
+      </div>
+    </div>
+  </div>
+<div ui-view class="app-body" id="view">
+
+  <!-- ############ PAGE START-->
+  <div class="row-col">
+  <div class="col-sm w w-auto-xs light lt bg-auto">
+    <div class="padding pos-rlt">
+      <div class="hidden-xs-down" id="inbox-menu">
+        <div class="nav-active-primary">
+          <div class="nav nav-pills nav-md">
+              <a href='my.wallet.html' class="nav-link active">
+                我的钱包
+              </a>
+              <a href='my.api.html' class="nav-link">
+                交易所授权 
+              </a>
+              <a href='my.sns.html' class="nav-link">
+                社交网络
+              </a>
+              <a href='my.following.html' class="nav-link">
+                关注的大师
+              </a>
+              <a href='my.bookmark.html' class="nav-link">
+                收藏的币
+              </a>
+              <a href='my.message.html' class="nav-link">
+                消息通知
+              </a>
+              <a href='my.account.html' class="nav-link">
+                帐户安全
+              </a>
+          </div>
+        </div>
+        <div class="m-y">提示</div>
+        <div class="nav-active-white">
+          
+        </div>
+        <div class="p-y">
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm p-a-md">
+      <span class='h5'>飞特币钱包</span><span class='text-xs pull-right'>剩余: <span class='h5'>292.0 FTB</span></span>
+      <hr/>
+      <div class='row'>
+          <div class='col-sm-9 col-md-9 col-xs-9'>
+              接收地址
+              <p class='text-muted text-xs'>msBmqDUqotX8TzCsNXn6Mi9XtHo3cJ87GJ</p>
+          </div>
+           <div class='col-sm-3 col-md-3 col-xs-3 text-right'>
+              <a href='#' class='btn btn-danger btn-md'>发送</a>
+          </div>
+      </div>
+      <hr/>
+      <div class='row'>
+          <div class='col-sm-9 col-md-9 col-xs-9'>
+               钱包密语
+              <p class='text-muted text-xs' id="my">用于钱包恢复，确保安全</p>
+          </div>
+           <div class='col-sm-3 col-md-3 col-xs-3 text-right'>
+              <a href='#' class='btn btn-info btn-sm' id="walletmy" >备份</a>
+          </div>
+      </div>
+      <hr/>
+      <div class='row'>
+          <div class='col-sm-9 col-md-9 col-xs-9'>
+              钱包私钥
+              <p class='text-muted text-xs' id="sy">KyWsoNYQNwJEGTVPoETq1pVDoHkqE4csxwT27n9Xbrk4PgtVhGHJ</p>
+          </div>
+           <div class='col-sm-3 col-md-3 col-xs-3 text-right'>
+              <a href='#' class='btn btn-info btn-sm' id="walletsy" >备份</a>
+          </div>
+      </div>
+      <hr/>
+
+  </div>
+  
+  <!-- ############ PAGE END-->
+
+</div>
+</div>
+<!-- / -->
+<!-- .modal -->
+<div id="walletmymodal" class="modal fade" data-backdrop="true"
+ tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">请手动备份您的钱包密语，备份后本平台将不再显示！</h5>
+      </div>
+      <div class="modal-body p-t-md p-b-lg p-a-md">
+        <p class='p-b-sm'>请复制或抄写您的钱包密语！<span id='platform'></span></p>
+        <p class='p-b-sm'>KyWsoNYQNwJEGTVPoETq1pVDoHkqE4csxwT27n9Xbrk4PgtVhGHJ<span id='platform'></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn p-x-md m-r-sm" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn danger p-x-md m-r-sm" name="addapi" >备份完成</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /.modal-content -->
+
+<div id="walletsymodal" class="modal fade" data-backdrop="true"
+ tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">请手动备份您的钱包私钥，备份后本平台将不再显示！</h5>
+      </div>
+      <div class="modal-body p-t-md p-b-lg p-a-md">
+        <p class='p-b-sm'>请复制或抄写您的钱包私钥！<span id='platform'></span></p>
+        <p class='p-b-sm'>KyWsoNYQNwJEGTVPoETq1pVDoHkqE4csxwT27n9Xbrk4PgtVhGHJ<span id='platform'></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn p-x-md m-r-sm" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn danger p-x-md m-r-sm" name="addapi" >备份完成</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /.modal-content -->
+
+<!-- ############ LAYOUT END-->
+
+</div>
+<!-- build:js ././scripts/app.html.js -->
+<!-- jQuery -->
+<script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+<script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../libs/js/echarts/build/dist/echarts-all.js"></script>
+<script src="./scripts/ui-device.js"></script>
+<script src="./scripts/ui-form.js"></script>
+<script src="./scripts/ui-nav.js"></script>
+
+<script src="../js/common.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	$("#walletmy").click(function(){
+		$('#walletmymodal').modal('show');
+	});
+	$("#walletsy").click(function(){
+		$('#walletsymodal').modal('show');
+	});
+	
+})
+</script>
+<!-- endbuild -->
+</body>
+</html>

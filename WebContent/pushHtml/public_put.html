@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>币大师 -- 比特币投资好帮手</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="../assets/styles/app.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+</head>
+
+<body>
+<div class="tab-pane" id="tab-5" >
+        <div class="p-a-md dker _600">
+		 用户名：<span id="username"></span>&nbsp;&nbsp;&nbsp;
+                    可用余额：<span id="getuserblance"></span>￥&nbsp;&nbsp;&nbsp;
+                    冻结：<span id="fundBlance"></span>￥
+		</div>
+        <div class="p-a-md"  style="margin: 0px auto;width: 600px;height:700px;">
+  <div class="col-sm-6" style="width: 600px;margin-left:-20px;">
+      <div class="box" >
+        <div class="box-header">
+          <h2>币大师挂单列表</h2>
+          <a id="nextPage" class="btn btn-xs white pull-right" style="margin-right:5px;">下一页</a>
+          <a id="lastPage" class="btn btn-xs white pull-right" style="margin-right:2px;">上一页</a>
+        </div>
+        		
+            <table class="table table-striped b-t">
+          <thead>
+            <tr>
+            <th>大师</th>	
+			<th>大师币</th>
+			<th>卖出数量/剩余量</th>
+			<th>单价</th>
+			<th>总额</th>
+			<th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="allPushtbody">
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+ <!-- build:js ././scripts/app.html.js -->
+<!-- jQuery -->
+<script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+<script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../libs/js/echarts/build/dist/echarts-all.js"></script>
+<script src="./scripts/ui-device.js"></script>
+<script src="./scripts/ui-form.js"></script>
+<script src="./scripts/ui-nav.js"></script>
+<script src="./scripts/common.js"></script>
+<script type="text/javascript">
+$(function(){
+	showPublic_Putdata();
+	showLastBlance();
+	$("#nextPage").click(function(){
+		start+=limit;
+		if(start>=max){
+			start=max-limit;
+			if(start<=0){
+				start=0;
+			}
+		}
+		showPublic_Putdata();
+	});
+	$("#lastPage").click(function(){
+		start-=limit;
+		if(start<=0){
+			start=0;
+		}
+		showPublic_Putdata();
+	});
+});	
+</script>
+</body>
+</html>

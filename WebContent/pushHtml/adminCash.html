@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>币大师 -- 比特币投资好帮手</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="../assets/styles/app.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+  <style type="text/css">
+  table tr td{
+  text-align: center;	
+   
+  }
+  table tr th{
+  text-align: center;
+  }
+  
+  </style>
+  </head>
+<body>
+<div class="tab-pane" id="tab-5" >
+        <div class="p-a-md dker _600">管理员一号</div>
+        <div class="p-a-md"  style="margin: 0px auto;width: 800px;height:700px;">
+  		<div class="col-sm-6" style="width: 500px;margin-left:-20px;">
+      <div class="box" style="width: 800px;">
+        <div class="box-header">
+          <h2>提现待核审列表</h2>
+            <a id="nextPage" class="btn btn-xs white pull-right" style="margin-right:15px;">下一页</a>
+       		<a id="lastPage" class="btn btn-xs white pull-right" style="margin-right:6px;">上一页</a>
+        </div>
+        <table class="table table-striped b-t" >
+          <thead>
+            <tr>
+	        <th>用户</th>
+		   	<th>支付宝账号</th>
+			<th>提现金额（手续费后）</th>
+			<th>申请时间</th>
+			<th>申请状态</th>
+			<th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="AllList">
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<!-- .modal -->
+<div id="m-a-f" class="modal fade" data-backdrop="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h5 class="modal-title">确认打款</h5>
+      </div>
+      <div class="modal-body text-center p-lg" style="height:300px;">
+                <input type="hidden" id="wid"/>
+        <div class="md-form-group"  style="margin-top:0px;">
+         <label id="OutCashMsg" class='pull-right'></label>
+             <input type="number" id="confirmAmount" onkeyup="checkcashnum()"  class="md-input" >
+            
+             <input type="hidden" id="hiddenNum" />
+               <label>打款金额</label>
+        </div>
+        <div class="md-form-group"  style="margin-top:0px;">
+             <input id="txId"  class="md-input" >
+               <label>流水账号</label>
+        </div>
+        <div class="md-form-group">
+	        <input id="beizhu" class="md-input"  >
+	        <label>备注</label>
+        </div> 
+        <div>
+         <button id="sureCash" onclick="Okmoney()" class="btn btn-outline rounded b-primary text-primary">确认打款</button>
+         <button onclick="Offmoney()" class="btn btn-outline rounded b-warning text-warning">拒绝打款</button>
+        </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">关闭</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+<!-- / .modal -->
+<!-- build:js ././scripts/app.html.js -->
+<!-- jQuery -->
+<script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+<script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../libs/js/echarts/build/dist/echarts-all.js"></script>
+<script src="./scripts/ui-device.js"></script>
+<script src="./scripts/ui-form.js"></script>
+<script src="./scripts/ui-nav.js"></script>
+<script src="./scripts/common.js"></script>
+<script type="text/javascript">
+$(function(){
+	showwithdrawList(start,limit);
+	$("#nextPage").click(function(){
+		start+=limit;
+		if(start>=max){
+			start=max-limit;
+			if(start<0){
+				start=0;
+			}
+		}
+		showwithdrawList(start,limit);
+	});
+	$("#lastPage").click(function(){
+		start-=limit;
+		if(start<=0){
+			start=0;
+		}
+		showwithdrawList(start,limit);
+		});
+});
+
+</script>
+</body>
+</html>

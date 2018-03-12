@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>飞特币 -- 社交化加密币投顾平台</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="./logo/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <link rel="shortcut icon" sizes="196x196" href="./logo/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="../assets/styles/app.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+  <style>
+    .topTable tbody {
+      display:block;
+      height:685px;
+      overflow-y:scroll;
+    }
+    
+    .topTable thead, .topTable tbody tr {
+      display:table;
+      width:100%;
+      table-layout:fixed;
+   
+      
+    }
+    .topTable tbody tr:hover{
+      cursor: pointer;
+      background: #f9f9f9;
+      color: #555;
+    }
+    
+    .topTable thead {
+      width: calc( 100% - 1em )
+    }
+    #sellDlg .input-group-addon, #buyDlg .input-group-addon{
+      min-width: 80px;
+    }
+    .coinSpan{
+      min-width: 55px;
+    }
+    .lsp2{
+      letter-spacing: 1px;
+    }
+    .dashBorderBot{
+      border-bottom:1px dashed #555;
+    }
+    .lineBorderBot{
+      border-bottom:1px solid #555;
+    }
+    /*********app.css customize***********/
+    .success {
+      background-color: #2BDE73;
+    }
+    .b-success {
+      border-color: #2BDE73; }
+      .text-success,
+      .text-success-hover a:hover {
+        color: #2BDE73 !important; }
+    .text-xs,.text-xs tr td{
+          font-size: 0.3rem !important;
+        }
+      </style>
+    </head>
+    <body >
+      <div class="app" id="app">
+
+        <!-- ############ LAYOUT START-->
+
+        <!-- aside -->
+        <div id="aside" class="app-aside modal navside folded show-text w-xs">
+         <!-- fluid app aside -->
+         <div class="left navside dark" layout="column">
+           <div class="navbar no-radius">
+            <!-- brand -->
+            <a class="navbar-brand">
+             <img src="./logo/logo.png" alt=".">
+             <span class="hidden-folded inline text-muted">飞特币</span>
+           </a>
+           <!-- / brand -->
+         </div>
+         <div flex class="hide-scroll">
+          <nav class="scroll nav-light">
+
+            <ul class="nav" ui-nav>
+              <li class="nav-header hidden-folded">
+                <small class="text-muted">主要</small>
+              </li>
+
+              <li class="primary">
+                <a href="index.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe3ea;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">资产</span>
+                </a>
+              </li>
+               <li>
+                <a href="trade.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe24b;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">行情</span>
+                </a>
+              </li>  
+               <li >
+                <a href="my.api.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe84f;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">交易所</span>
+                </a>
+              </li>
+              <li>
+                <a href="master.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe7fc;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">大师</span>
+                </a>
+              </li>
+               <li>
+                <a href="smartOrder.html">
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-label">
+                    <b class="label rounded label-sm primary"></b>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe896;
+                      <span ui-include="'../assets/images/i_1.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">订单</span>
+                </a>
+                <ul class="nav-sub">
+                  <li>
+                    <a>
+                      <span class="nav-text">自动买卖</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="order.history.html" >
+                      <span class="nav-text">订单历史</span>
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+              <li>
+                <a href="my.account.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8e8;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">帐户</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" >
+                 <span class="nav-icon">
+                  <i class="material-icons">&#xe8fd;
+                    <span ui-include="'../assets/images/i_0.svg'"></span>
+                  </i>
+                </span>
+                <span class="nav-text">帮助</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+      <div flex-no-shrink class="b-t">
+        <div class="nav-fold">
+         <a onclick="logOut()" >
+           <span class="nav-icon">
+            <i class="material-icons">&#xe8ac;
+              <span ui-include="'../assets/images/i_0.svg'"></span>
+            </i>
+          </span>
+          <span class="nav-text">退出</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / -->
+
+<!-- content -->
+<div id="content" class="app-content box-shadow-z0" role="main">
+  <div class="app-header white box-shadow ">
+    <div class="navbar">
+      <!-- Open side - Naviation on mobile -->
+      <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up">
+        <i class="material-icons">&#xe5d2;</i>
+      </a>
+      <!-- / -->
+      
+      <!-- Page title - Bind to $state's title -->
+      <div class="navbar-item pull-left h5 p-l-sm hidden-folded hidden-lg-down text-muted" ng-bind="$state.current.data.title" id="pageTitle">飞特币</div>
+      
+      <!-- / navbar collapse -->
+    </div>
+  </div>
+  <div class="app-footer">
+    <div class="p-a text-sm">
+      <div class="pull-right text-muted">
+        &copy; Copyright <strong>飞特币</strong> <span class="hidden-xs-down">v0.1.1</span>
+        <a ui-scroll-to="content"><i class="fa fa-long-arrow-up p-x-sm"></i></a>
+      </div>
+      <div class="nav p-l-sm">
+        <a class="nav-link" href="about.html">关于我们</a> 
+        <a class="nav-link p-l-sm" href="contact.html">在线客服</a>
+      </div>
+    </div>
+  </div>
+  <div ui-view class="app-body">
+
+    <!-- ############ PAGE START-->
+  
+    <div class="row-col"><div class="col-lg">
+    <div class="row no-gutter">
+    <div class="col-xs-6 col-sm-3 b-r b-b">
+    <div class="padding">
+    <div>
+     <span class="text-muted "><i class="fa fa-chain text-muted"></i></span>
+     </div>
+     <div class="text-center"><h4 class="text-center _400" id='assatsCount'>
+     <img  src="./logo/loging.gif">
+     </h4>
+     <p class="text-muted m-b-sm">持有数字资产</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xs-6 col-sm-3 b-r b-b">
+    <div class="padding"><div>
+     <span class="text-muted"><i class="fa fa-list text-muted"></i></span>
+     </div>
+     <div class="text-center cursor" onclick='javascript:$("#fillDlg").modal("show");'>
+     <h4 class="text-center _400" id='openOrdercount'>
+     <img  src="./logo/loging.gif">
+     </h4><p class="text-muted m-b-sm">冻结中</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xs-6 col-sm-3 b-r b-b"><div class="padding">
+    <div>
+     <span class="text-muted"><i class="fa fa-bitcoin text-muted"></i></span></div>
+     <div class="text-center"><h4 class="text-center _400" id='btcAount'>
+     <img  src="./logo/loging.gif">
+     </h4>
+     <p class="text-muted m-b-sm">BTC总数量</p>
+    </div>
+    </div>
+    </div>
+    <!-- <div class="col-xs-6 col-sm-2 b-r b-b">
+    <div class="padding"><div>
+     <span class="text-muted"><i class="fa fa-cny text-muted"></i></span>
+     </div><div class="text-center cursor" onclick='javascript:$("#fillDlg").modal("show");'>
+     <h4 class="text-center _400" id='totelCNY'>
+     <img  src="./logo/loging.gif">
+     </h4>
+     <p class="text-muted m-b-sm">总资产（按火币网）</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xs-6 col-sm-2 b-r b-b"><div class="padding"><div>
+    
+     <span class="text-muted">
+     <i class="fa fa-cny text-muted"></i></span>
+     </div><div onclick='javascript:$("#withdrawDlg").modal("show");' class="text-center cursor" ><h4 class="text-center _400" id="availableAmount">
+     <img  src="./logo/loging.gif">
+     </h4><p class="text-muted m-b-sm">可用资产 <a class='text-primary'></a> <a class='text-danger'></a></p>
+      </div></div></div> -->
+
+    <div class="col-xs-6 col-sm-3 b-b"><div class="padding">
+    <div>
+     <span class="text-muted"><i class="fa fa-ils"></i></span></div>
+     <div class="text-center cursor" onclick='javascript:$("#fillDlg").modal("show");'>
+     <h4 class="text-center _400" id='bdhAmount'>
+     <img  src="./logo/loging.gif">
+     </h4><p class="text-muted m-b-sm">FTB(飞特币)</p>
+    </div></div></div>
+    </div>
+	 
+  </div>
+  </div>
+<div class="padding">
+ <div class='row' id="more_button">
+<!-- <a href="allApisBalance.html" class='btn btn-sm rounded btn-outline b-info text-xs text-info pull-right'>更多>></a> -->
+</div>
+	<div id="mapBlance" class='row p-t-md'  >
+	</div>
+    <div class='row p-t-md'>
+      <div class="col-md-6 col-xs-12">
+        <div class="box">
+          <div class="box-header b-b">
+          	<a  onclick="reloadMybookmark()" class='btn btn-xs white pull-right'><i class='fa fa-fw fa-refresh'></i></a>
+            <a id="bookNext"  class="btn btn-xs white pull-right"><i class="fa fa-chevron-right"></i></a> 
+            <a id="bookLast" class="btn btn-xs white pull-right m-r-sm"><i class="fa fa-chevron-left"></i></a>  
+             <span class='h6'>我关注的币</span>
+          </div>
+          <div class="table-responsive" id="booklistContent">
+           <table class="table table-sm text-sm m-b-xs">
+              <thead>
+                <tr style="white-space:nowrap">
+                  <th>币种</th>
+                  <th>当前价</th>
+                  <th>最高价</th>
+                  <th>最低价</th>
+                  <th>交易量</th>
+                  <th>平台</th>             
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="bookList">   
+              <tr>
+              <td colspan="7">
+              <br><br><br>
+              <p class='h1 text-center p-t-md text-info'>
+	          <img  src='./logo/loging.gif'></p> 
+	          <br><br>
+	          </td>
+	          </tr>
+              </tbody>
+            </table>        
+         
+          </div>
+        </div>
+      </div>
+       <div class="col-md-6 col-xs-12">
+        <div class="box">
+          <div class="box-header b-b">
+          <a onclick="reloadNewOpen()" class='btn btn-xs white pull-right'><i class='fa fa-fw fa-refresh'></i></a>
+           <a id="openNext" class="btn btn-xs white pull-right"><i class="fa fa-chevron-right"></i></a>
+           <a id="openLast" class="btn btn-xs white pull-right"><i class="fa fa-chevron-left"></i></a> 
+             <span class='h6'>新开盘的</span>
+          </div>
+          <div class="table-responsive" id="newopenContent">
+           <table class="table table-sm text-sm m-b-xs">
+              <thead>
+                <tr style="white-space:nowrap">
+                  <th>币种</th>
+                  <th>平台</th>
+                  <th>开盘价</th>
+                  <th>当前价</th>
+                  <th>交易量</th>
+                  <th>日期</th>
+                </tr>
+              </thead>
+               <tbody id="newOpentbody">
+               <tr>
+              <td colspan="7">
+              <br><br><br>
+              <p class='h1 text-center p-t-md text-info'>
+	          <img  src='./logo/loging.gif'></p> 
+	          <br><br>
+	          </td>
+	          </tr>
+              </tbody>
+            </table>
+           
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class='row p-t-md'>
+       <div class="col-md-6 col-xs-12">
+         <div class="box">
+            <div class="box-header b-b">
+             <a id="smartNext" class="btn btn-xs white pull-right"><i class="fa fa-chevron-right"></i></a> 
+             <a id="smartLast" class="btn btn-xs white pull-right m-r-sm"><i class="fa fa-chevron-left"></i></a>  
+               <span class='h6'>智能策略</span>
+            </div>
+            <div class="table-responsive" id="smartDealContent">
+              <table class="table table-sm text-sm m-b-xs" >
+              <thead>
+                <tr style="white-space:nowrap">
+                  <th>币种</th>
+                  <th>当前价</th>
+                  <th>买/卖（价）</th>
+                  <th>平台</th>
+                  <th>智能合约</th>
+                  <th>操作</th>
+                </tr>
+              </thead>  
+              <tbody id="stmartDeal" role="5">
+              </tbody>       
+            </table> 
+          </div>
+        </div>    
+         </div>
+         <div class="col-md-6 col-xs-12">
+       
+        <div class="box">
+          <div class="box-header b-b">
+           	 <a id="marstNext" class="btn btn-xs white pull-right"><i class="fa fa-chevron-right"></i></a> 
+             <a id="marstLast" class="btn btn-xs white pull-right m-r-sm"><i class="fa fa-chevron-left"></i></a>   
+              <span class='h6'>我关注的大师</span>
+          </div>
+          <div class="table-responsive" id="masterContent">
+            <table class="table table-sm text-sm m-b-xs">
+              <thead>
+                <tr style="white-space:nowrap;">
+                  <th>大师地址</th> 
+                  <th>资产数</th>
+                  <th>粉丝数</th>
+                  <th>策略数</th>
+                  <th>日盈利</th>
+                </tr>
+              </thead>
+              <tbody id="masterList">        
+              </tbody>
+            </table>              
+          </div>
+        </div>
+       
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</div>
+<!-- / -->
+
+
+<!-- small modal -->
+<div id="msgDlg" class="modal" data-backdrop="true">
+  <div class="row-col h-v">
+    <div class="row-cell v-m">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+          	<h5 class="modal-title">提示</h5>
+          </div>
+          <div class="modal-body text-center p-lg">
+            <p id='msgTips'></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn info p-x-md" data-dismiss="modal">OK</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- / .modal -->
+
+<!-- ############ LAYOUT END-->
+
+</div>
+<!-- build:js ././scripts/app.html.js -->
+<!-- jQuery -->
+  <script src="../libs/jquery/jquery/dist/jquery.js"></script>
+  <!-- Bootstrap -->
+  <script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+  <script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+
+  
+  <script src="../libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="../libs/jquery/PACE/pace.min.js"></script>
+
+  <script src="scripts/config.lazyload.js"></script>
+
+  <script src="scripts/palette.js"></script>
+  <script src="scripts/ui-load.js"></script>
+  <script src="scripts/ui-jp.js"></script>
+  
+  <script src="scripts/ui-device.js"></script>
+  <script src="scripts/ui-form.js"></script>
+  <script src="scripts/ui-nav.js"></script>
+  <script src="scripts/ui-screenfull.js"></script>
+  <script src="scripts/ui-scroll-to.js"></script>
+  <script src="scripts/ui-toggle-class.js"></script>
+ 
+  <!-- ajax -->
+  <script src="../libs/jquery/jquery-pjax/jquery.pjax.js"></script>
+  <script src="scripts/ajax.js"></script>
+  <script src="./scripts/index.js"></script>
+  <script src="./scripts/common.js"></script>
+<script type="text/javascript">
+/*   $(document).ready(function() {
+
+    var pf = getStorageJson(PLATFORM);
+    $('.nav-link').removeClass('active');
+    $('.'+pf).addClass('active');
+
+    if (isLogin()) {
+
+      returnCompleteBalances();
+
+      setInterval(returnTicker, 2000);
+
+      setTimeout(returnMyTradeHistory,1200);
+
+      //setInterval(returnExchanges, 20000);
+    } else {
+      window.location.href='signin.html';
+    }
+
+    if(isMobile.any()) {
+     $('.hidden-md-down').empty();
+     $('#tikerList tbody').css('height:350px');
+   }
+
+ });
+   */
+  function setSellQty() {
+   $('#sellAmt').val($('#mySellCoinQty').text());
+   var rate = parseFloat($('#sellRate').val());
+   var amt = parseFloat($('#sellAmt').val());
+   
+   $("#sellTotalQty").val((rate*amt).toFixed(8));
+   calcuSellProfit();
+ }
+ 
+ function setBuyQty() {
+  $('#buyTotalQty').val($('#myBuyBtcQty').text());
+  var qty = parseFloat($('#buyTotalQty').val());
+  var rate = parseFloat($("#buyRate").val());
+  
+  $("#buyAmt").val((qty/rate).toFixed(8));
+}
+
+function setBuyRate() {
+  $('#buyRate').val($('#buyPriceRate').text());
+  var rate = parseFloat($('#buyRate').val());
+  var amt = parseFloat($("#buyAmt").val());
+  
+  $("#buyTotalQty").val(rate*amt);
+}
+
+function setSellRate() {
+  $('#sellRate').val($('#sellPriceRate').text());
+  var rate = parseFloat($('#sellRate').val());
+  var amt = parseFloat($("#sellAmt").val());
+  
+  $("#sellTotalQty").val((rate*amt).toFixed(8));
+  
+  calcuSellProfit();
+}
+
+$("#buyRate").bind("propertychange input",function(){
+  var rate = parseFloat($(this).val());
+  var amt = parseFloat($("#buyAmt").val());
+  
+  $("#buyTotalQty").val((rate*amt).toFixed(8));
+});
+
+$("#buyTotalQty").bind("propertychange input",function(){
+  var qty = parseFloat($(this).val());
+  var rate = parseFloat($("#buyRate").val());
+  
+  $("#buyAmt").val((qty/rate).toFixed(8));
+});
+
+$("#buyAmt").bind("propertychange input",function(){
+  var rate = parseFloat($('#buyRate').val());
+  var amt = parseFloat($(this).val());
+  
+  $("#buyTotalQty").val((rate*amt).toFixed(8));
+});
+
+$("#sellRate").bind("propertychange input",function(){
+  var rate = parseFloat($(this).val());
+  var amt = parseFloat($("#sellAmt").val());
+  
+  $("#sellTotalQty").val((rate*amt).toFixed(8));
+  
+  calcuSellProfit();
+});
+
+$("#sellTotalQty").bind("propertychange input",function(){
+  var qty = parseFloat($(this).val());
+  var rate = parseFloat($('#sellRate').val());
+  
+  $("#sellAmt").val((qty/rate).toFixed(8));
+  
+  calcuSellProfit();
+});
+
+$("#sellAmt").bind("propertychange input",function(){
+  var rate = parseFloat($('#sellRate').val());
+  var amt = parseFloat($(this).val());
+  
+  $("#sellTotalQty").val((rate*amt).toFixed(8));
+  
+  calcuSellProfit();
+});
+
+$(".sellInput").change(function(){
+  calcuSellProfit();
+});
+
+function calcuSellProfit() {
+  var boughtAvgPrice = $('#BTC_'+$('#sellCoinName').text()+'_vrate').text();
+  var sellRate = parseFloat($('#sellRate').val());
+  var sellQty = $("#sellAmt").val();
+  sellQty = sellQty==''?'0':sellQty;
+  boughtAvgPrice = parseFloat(boughtAvgPrice).toFixed(8);
+  sellQty = parseFloat(sellQty).toFixed(8);
+
+  var profit = ((sellRate-boughtAvgPrice)*sellQty).toFixed(8);
+  $('#sellProfit').html(profit);
+  if (profit>0) {
+    $('#sellProfit').addClass('text-success').removeClass('text-danger');
+  }else if (profit<0){
+    $('#sellProfit').addClass('text-danger').removeClass('text-success');
+  }else{
+   $('#sellProfit').removeClass('text-danger').removeClass('text-success');
+ }
+}
+</script>
+<!-- endbuild -->
+</body>
+</html>

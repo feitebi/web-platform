@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>币大师 -- 比特币投资好帮手</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="../assets/styles/app.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+  <style>
+    .topTable tbody {
+      display:block;
+      height:450px;
+      overflow-y:scroll;
+    }
+    
+    .topTable thead, .topTable tbody tr {
+      display:table;
+      width:100%;
+      table-layout:fixed;
+    }
+    
+    .topTable thead {
+      width: calc( 100% - 1em )
+    }
+    .bg_gray {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+
+    <!-- ############ LAYOUT START-->
+
+    <!-- aside -->
+    <div id="aside" class="app-aside modal navside folded show-text w-xs">
+       <!-- fluid app aside -->
+       <div class="left navside dark" layout="column">
+         <div class="navbar no-radius">
+          <!-- brand -->
+          <a class="navbar-brand">
+           <img src="../assets/images/logo.png" alt=".">
+           <span class="hidden-folded inline">币大师</span>
+         </a>
+         <!-- / brand -->
+       </div>
+       <div flex class="hide-scroll">
+        <nav class="scroll nav-light">
+          
+          <ul class="nav" ui-nav>
+            <li class="nav-header hidden-folded">
+              <small class="text-muted">主要</small>
+            </li>
+            
+            <li>
+              <a href="index.html" >
+                <span class="nav-icon">
+                  <i class="material-icons">&#xe84f;
+                    <span ui-include="'../assets/images/i_0.svg'"></span>
+                  </i>
+                </span>
+                <span class="nav-text">资产</span>
+              </a>
+            </li>
+            
+            <li>
+              <a href="order.stoplimit.html">
+                <span class="nav-caret">
+                  <i class="fa fa-caret-down"></i>
+                </span>
+                <span class="nav-label">
+                  <b class="label rounded label-sm primary"></b>
+                </span>
+                <span class="nav-icon">
+                  <i class="material-icons">&#xe896;
+                    <span ui-include="'../assets/images/i_1.svg'"></span>
+                  </i>
+                </span>
+                <span class="nav-text">订单</span>
+              </a>
+              <ul class="nav-sub">
+                <li>
+                  <a href="order.stoplimit.html" >
+                    <span class="nav-text">自动买卖</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="order.history.html" >
+                    <span class="nav-text">订单历史</span>
+                  </a>
+                </li>
+                
+              </ul>
+            </li>
+            <li>
+              <a href="coin.compare.html" >
+                <span class="nav-icon">
+                  <i class="material-icons">&#xe3b9;
+                    <span ui-include="'../assets/images/i_0.svg'"></span>
+                  </i>
+                </span>
+                <span class="nav-text">比币</span>
+              </a>
+            </li>
+            <li class="primary">
+              <a href="my.api.html" >
+                <span class="nav-icon">
+                  <i class="material-icons">&#xe8c0;
+                    <span ui-include="'../assets/images/i_0.svg'"></span>
+                  </i>
+                </span>
+                <span class="nav-text">API</span>
+              </a>
+            </li>
+            <li >
+              <a href="my.account.html" >
+                <span class="nav-icon">
+                  <i class="material-icons">&#xe8e8;
+                    <span ui-include="'../assets/images/i_0.svg'"></span>
+                  </i>
+                </span>
+                <span class="nav-text">帐户</span>
+              </a>
+            </li>
+            
+            <li>
+              <a href="#" >
+               <span class="nav-icon">
+                <i class="material-icons">&#xe8fd;
+                  <span ui-include="'../assets/images/i_0.svg'"></span>
+                </i>
+              </span>
+              <span class="nav-text">帮助</span>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+     <div flex-no-shrink class="b-t">
+        <div class="nav-fold">
+             <a href="#" >
+               <span class="nav-icon">
+                <i class="material-icons">&#xe8ac;
+                  <span ui-include="'../assets/images/i_0.svg'"></span>
+                </i>
+              </span>
+              <span class="nav-text">退出</span>
+            </a>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- / -->
+<!-- / -->
+
+<!-- content -->
+<div id="content" class="app-content box-shadow-z0" role="main">
+  <div class="app-header white box-shadow">
+    <div class="navbar">
+      <!-- Open side - Naviation on mobile -->
+      <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up">
+        <i class="material-icons">&#xe5d2;</i>
+      </a>
+      <!-- / -->
+      
+      <!-- Page title - Bind to $state's title -->
+      <div class="navbar-item pull-left h5 p-l-sm" ng-bind="$state.current.data.title" id="pageTitle">添加币市场API</div>
+      
+      <!-- navbar right -->
+      <ul class="nav navbar-nav pull-right">
+        
+        <li class="nav-item dropdown">
+          <a href class="nav-link dropdown-toggle clear" data-toggle="dropdown">
+            <span class="avatar w-32">
+              我的
+            </span>
+          </a>
+          <div class="pop-menu dropdown-menu pull-right dropdown-menu-scale">
+            <a class="dropdown-item" href='#'>
+              <span>我的收益</span>
+            </a>
+            <a class="dropdown-item" href='#'>
+              <span>我的订单</span>
+            </a>
+            <a class="dropdown-item" href='#'>
+              <span>自动买卖</span>
+              <span class="label warn m-l-xs">3</span>
+            </a>
+            <div class="dropdown-divider"></div><a class="dropdown-item" href='settings.html'>
+            <span>帐户设置</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">注销</a>
+        </div>
+      </li>
+    </ul>
+    <!-- / navbar right -->
+    
+    <!-- navbar collapse -->
+    
+    <!-- / navbar collapse -->
+  </div>
+</div>
+<div class="app-footer">
+  <div class="p-a text-xs">
+    <div class="pull-right text-muted">
+      &copy; Copyright <strong>Dag</strong> <span class="hidden-xs-down">- v1.1.1</span>
+      <a ui-scroll-to="content"><i class="fa fa-long-arrow-up p-x-sm"></i></a>
+    </div>
+    <div class="nav">
+      <a class="nav-link" href="../">About</a>
+      <span class="text-muted">-</span>
+    </div>
+  </div>
+</div>
+<div ui-view class="app-body" id="view">
+
+  <!-- ############ PAGE START-->
+  <div class="padding">
+    <div class='row'>
+     <div class="col-xs-12 col-sm-6 col-md-4">
+       <div class="box">
+         <div class="box-tool">
+           
+         </div>  
+         <div class="p-a-md text-center">
+           <p><a href='https://poloniex.com/' target='_blank'><img src="../assets/images/poloniex.ico" class="img-circle w-56"></a></p>
+           <a href='https://poloniex.com/' target='_blank' class="text-md block">Poloniex</a>
+           <p class='text-muted text-sm p-t-sm'>© Poloniex, Inc. Wilmington, DE, USA</p>
+           <a class="btn btn-sm bg_gray text-success">停止授权</a>
+         </div>
+         <div class="row no-gutter b-t text-center text-xs">
+          <div class="col-xs-4 b-r">
+            <a href='https://poloniex.com/' target='_blank' class="p-a block text-center" ui-toggle-class>
+              <i class="material-icons md-24 text-muted m-v-sm none">&#xe0c3;</i>
+              <i class="material-icons md-24 text-success m-v-sm inline">&#xe0c3;</i>
+              <span class="block">正在运行</span>
+            </a>
+          </div>
+          <div class="col-xs-4 b-r">
+            <a class="p-a block text-center" ui-toggle-class>
+              <i class="material-icons md-24 text-muted m-v-sm none">&#xe429;</i>
+              <i class="material-icons md-24 text-success m-v-sm inline">&#xe429;</i>
+              <span class="block">安全设置</span>
+            </a>
+          </div>
+          <div class="col-xs-4">
+            <a class="p-a block text-center" ui-toggle-class>
+              <i class="material-icons md-24 text-muted m-v-sm none">&#xe037;</i>
+              <i class="material-icons md-24 text-success m-v-sm inline">&#xe034;</i>
+              <span class="block">暂停访问</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-6 col-md-4 text-muted">
+     <div class="box">
+       <div class="box-tool">
+         
+       </div>  
+       <div class="p-a-md text-center">
+         <p><a href='https://zaif.jp/' target='_blank'><img src="../assets/images/zaif.png" class="img-circle w-56"></a></p>
+         <a href='https://zaif.jp/' target='_blank' class="text-md block">Zaif</a>
+         <p class='text-muted text-sm p-t-sm'>© Tech Bureau, Corp.</p>
+         <a href="javascript:$('#apiSetDlg').modal('show')" class="btn btn-sm b-info text-info btn-outline"><i class="material-icons md-16 none">&#xe5ca;</i>添加API</a>
+       </div>
+       <div class="row no-gutter b-t text-center text-xs">
+        <div class="col-xs-4 b-r">
+          <a href='https://zaif.jp/' target='_blank' class="p-a block text-center" ui-toggle-class>
+            <i class="material-icons md-24 text-muted m-v-sm inline">&#xe0c3;</i>
+            <i class="material-icons md-24 text-success m-v-sm none">&#xe0c3;</i>
+            <span class="block">未开始</span>
+          </a>
+        </div>
+        <div class="col-xs-4 b-r">
+          <a class="p-a block text-center" ui-toggle-class>
+            <i class="material-icons md-24 text-muted m-v-sm inline">&#xe429;</i>
+            <i class="material-icons md-24 text-success m-v-sm none">&#xe429;</i>
+            <span class="block">安全设置</span>
+          </a>
+        </div>
+        <div class="col-xs-4">
+          <a class="p-a block text-center" ui-toggle-class>
+            <i class="material-icons md-24 text-muted m-v-sm inline">&#xe037;</i>
+            <i class="material-icons md-24 text-success m-v-sm none">&#xe037;</i>
+            <span class="block">开启访问</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-4 text-muted">
+   <div class="box">
+     <div class="box-tool">
+       
+     </div>  
+     <div class="p-a-md text-center">
+       <p><a href='https://www.bitfinex.com/' target='_blank'><img src="../assets/images/bitfinex.ico" class="img-circle w-56"></a></p>
+       <a href='https://www.bitfinex.com/' target='_blank' class="text-md block">Bitfinex</a>
+       <p class='text-muted text-sm p-t-sm'>© Bitfinex, Inc. 2017 </p>
+       <a href class="btn btn-sm b-info text-info btn-outline"><i class="material-icons md-16 none">&#xe5ca;</i>添加API</a>
+     </div>
+     <div class="row no-gutter b-t text-center text-xs">
+      <div class="col-xs-4 b-r">
+        <a href='https://www.bitfinex.com/' target='_blank' class="p-a block text-center" ui-toggle-class>
+          <i class="material-icons md-24 text-muted m-v-sm inline">&#xe0c3;</i>
+          <i class="material-icons md-24 text-success m-v-sm none">&#xe0c3;</i>
+          <span class="block">未开始</span>
+        </a>
+      </div>
+      <div class="col-xs-4 b-r">
+        <a class="p-a block text-center" ui-toggle-class>
+          <i class="material-icons md-24 text-muted m-v-sm inline">&#xe429;</i>
+          <i class="material-icons md-24 text-success m-v-sm none">&#xe429;</i>
+          <span class="block">安全设置</span>
+        </a>
+      </div>
+      <div class="col-xs-4">
+        <a class="p-a block text-center" ui-toggle-class>
+          <i class="material-icons md-24 text-muted m-v-sm inline">&#xe037;</i>
+          <i class="material-icons md-24 text-success m-v-sm none">&#xe037;</i>
+          <span class="block">开启访问</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 text-muted">
+	<div class="box">
+   <div class="box-tool">
+     
+   </div>  
+   <div class="p-a-md text-center">
+     <p><a href='https://bitflyer.jp/' target='_blank'><img src="../assets/images/bitflyer.png" class="img-circle w-56"></a></p>
+     <a href='https://bitflyer.jp/' target='_blank' class="text-md block">Bitflyer</a>
+     <p class='text-muted text-sm p-t-sm'>© bitFlyer, Inc - Minato-ku, Tokyo</p>
+     <a href class="btn btn-sm b-info text-info btn-outline"><i class="material-icons md-16 none">&#xe5ca;</i>添加API</a>
+   </div>
+   <div class="row no-gutter b-t text-center text-xs">
+    <div class="col-xs-4 b-r">
+      <a href='https://bitflyer.jp/' target='_blank' class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe0c3;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe0c3;</i>
+        <span class="block">未开始</span>
+      </a>
+    </div>
+    <div class="col-xs-4 b-r">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe429;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe429;</i>
+        <span class="block">安全设置</span>
+      </a>
+    </div>
+    <div class="col-xs-4">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe037;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe037;</i>
+        <span class="block">开启访问</span>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 text-muted">
+	<div class="box">
+   <div class="box-tool">
+     
+   </div>  
+   <div class="p-a-md text-center">
+     <p><a href='https://www.bitstamp.net/' target='_blank'><img src="../assets/images/bitstamp.ico" class="img-circle w-56"></a></p>
+     <a href='https://www.bitstamp.net' target='_blank' class="text-md block">Bitstamp</a>
+     <p class='text-muted text-sm p-t-sm'>© Bitstamp Ltd, United Kingdom</p>
+     <a href class="btn btn-sm b-info text-info btn-outline"><i class="material-icons md-16 none">&#xe5ca;</i>添加API</a>
+   </div>
+   <div class="row no-gutter b-t text-center text-xs">
+    <div class="col-xs-4 b-r">
+      <a href='https://www.bitstamp.net' target='_blank' class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe0c3;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe0c3;</i>
+        <span class="block">未开始</span>
+      </a>
+    </div>
+    <div class="col-xs-4 b-r">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe429;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe429;</i>
+        <span class="block">安全设置</span>
+      </a>
+    </div>
+    <div class="col-xs-4">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe037;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe037;</i>
+        <span class="block">开启访问</span>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 text-muted">
+	<div class="box">
+   <div class="box-tool">
+     
+   </div>  
+   <div class="p-a-md text-center">
+     <p><a href='https://bittrex.com/' target='_blank'><img src="../assets/images/bittrex.ico" class="img-circle w-56"></a></p>
+     <a href='https://bittrex.com/' target='_blank' class="text-md block">Bittrex.com</a>
+     <p class='text-muted text-sm p-t-sm'>© Bittrex, Inc. 2017 - USA</p>
+     <a href class="btn btn-sm b-info text-info btn-outline"><i class="material-icons md-16 none">&#xe5ca;</i>添加API</a>
+   </div>
+   <div class="row no-gutter b-t text-center text-xs">
+    <div class="col-xs-4 b-r">
+      <a href='https://poloniex.com/' target='_blank' class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe0c3;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe0c3;</i>
+        <span class="block">未开始</span>
+      </a>
+    </div>
+    <div class="col-xs-4 b-r">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe429;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe429;</i>
+        <span class="block">安全设置</span>
+      </a>
+    </div>
+    <div class="col-xs-4">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe037;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe037;</i>
+        <span class="block">开启访问</span>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 text-muted">
+	<div class="box">
+   <div class="box-tool">
+     
+   </div>  
+   <div class="p-a-md text-center">
+     <p><a href='https://coincheck.com/' target='_blank'><img src="../assets/images/coincheck.ico" class="img-circle w-56"></a></p>
+     <a href='https://coincheck.com/' target='_blank' class="text-md block">Coincheck</a>
+     <p class='text-muted text-sm p-t-sm'>コインチェック株式会社</p>
+     <a href class="btn btn-sm b-info text-info btn-outline"><i class="material-icons md-16 none">&#xe5ca;</i>添加API</a>
+   </div>
+   <div class="row no-gutter b-t text-center text-xs">
+    <div class="col-xs-4 b-r">
+      <a href='https://coincheck.com/' target='_blank' class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe0c3;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe0c3;</i>
+        <span class="block">未开始</span>
+      </a>
+    </div>
+    <div class="col-xs-4 b-r">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe429;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe429;</i>
+        <span class="block">安全设置</span>
+      </a>
+    </div>
+    <div class="col-xs-4">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe037;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe037;</i>
+        <span class="block">开启访问</span>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 text-muted">
+	<div class="box">
+   <div class="box-tool">
+     
+   </div>  
+   <div class="p-a-md text-center">
+     <p><a href='https://yunbi.com/' target='_blank'><img src="../assets/images/yunbi.svg" class="img-circle w-56"></a></p>
+     <a href='https://yunbi.com/' target='_blank' class="text-md block">云币</a>
+     <p class='text-muted text-sm p-t-sm'>© YUNBI Technology Co., Ltd</p>
+     <a href class="btn btn-sm b-info text-info btn-outline"><i class="material-icons md-16 none">&#xe5ca;</i>添加API</a>
+   </div>
+   <div class="row no-gutter b-t text-center text-xs">
+    <div class="col-xs-4 b-r">
+      <a href='https://yunbi.com/' target='_blank' class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe0c3;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe0c3;</i>
+        <span class="block">未开始</span>
+      </a>
+    </div>
+    <div class="col-xs-4 b-r">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe429;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe429;</i>
+        <span class="block">安全设置</span>
+      </a>
+    </div>
+    <div class="col-xs-4">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe037;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe037;</i>
+        <span class="block">开启访问</span>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 text-muted">
+	<div class="box">
+   <div class="box-tool">
+     
+   </div>  
+   <div class="p-a-md text-center">
+     <p><a href='https://www.jubi.com/' target='_blank'><img src="../assets/images/jubi-logo.png" class="img-circle w-56"></a></p>
+     <a href='https://www.jubi.com/' target='_blank' class="text-md block">聚币网</a>
+     <p class='text-muted text-sm p-t-sm'>北京聚币科技有限公司</p>
+     <a href class="btn btn-sm b-info text-b-info text-info btn-outline"><i class="material-icons md-16 none">&#xe5ca;</i>添加API</a>
+   </div>
+   <div class="row no-gutter b-t text-center text-xs">
+    <div class="col-xs-4 b-r">
+      <a href='https://www.jubi.com/' target='_blank' class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe0c3;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe0c3;</i>
+        <span class="block">未开始</span>
+      </a>
+    </div>
+    <div class="col-xs-4 b-r">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe429;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe429;</i>
+        <span class="block">安全设置</span>
+      </a>
+    </div>
+    <div class="col-xs-4">
+      <a class="p-a block text-center" ui-toggle-class>
+        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe037;</i>
+        <i class="material-icons md-24 text-success m-v-sm none">&#xe037;</i>
+        <span class="block">开启访问</span>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+</div>
+<!-- ############ PAGE END-->
+
+</div>
+</div>
+<!-- / -->
+
+<!-- .modal -->
+<div id="apiSetDlg" class="modal" data-backdrop="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">设置API</h5>
+      </div>
+      <div class="modal-body p-t-md p-b-lg p-a-md">
+        <p class='p-b-sm'>请设置<span id='platform'></span> API</p>
+        <input type="text" id='key' class="form-control rounded m-t-sm" placeholder='API key'/>
+        <input type="text" id='secret' class="form-control rounded m-t-md" placeholder='API Secret'>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn danger p-x-md m-r-sm" onclick='javascript:addApi();'>确定</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+
+<!-- ############ LAYOUT END-->
+
+</div>
+<!-- build:js ././scripts/app.html.js -->
+<!-- jQuery -->
+<script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+<script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="./scripts/ui-device.js"></script>
+<script src="./scripts/ui-form.js"></script>
+<script src="./scripts/ui-nav.js"></script>
+
+<script src="./js/common.js"></script>
+
+ <script type="text/javascript">
+   $(document).ready(function() {
+      //$('#apiSetDlg').modal('show');
+   })
+  </script>
+<!-- endbuild -->
+</body>
+</html>

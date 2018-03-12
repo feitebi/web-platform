@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta charset="utf-8" />
+  <title>币大师 -- 测试数据</title>
+ <title>币大师 -- 比特币投资好帮手</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/styles/app.min.css">
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+    <style>
+    .topTable tbody {
+      display:block;
+      height:450px;
+      overflow-y:scroll;
+    }
+    
+    .topTable thead, .topTable tbody tr {
+      display:table;
+      width:10%;
+      table-layout:fixed;
+    }
+    
+    .topTable thead {
+      width: calc( 10% - 1em )
+    }
+    .bg_gray {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+  
+    <!-- aside -->
+   <div id="aside" class="app-aside modal navside folded show-text w-xs">
+         <!-- fluid app aside -->
+         <div class="left navside dark" layout="column">
+           <div class="navbar no-radius">
+            <!-- brand -->
+            <a class="navbar-brand">
+             <img src="../assets/images/logo.png" alt=".">
+             <span class="hidden-folded inline text-muted">币大师</span>
+           </a>
+           <!-- / brand -->
+         </div>
+         <div flex class="hide-scroll">
+          <nav class="scroll nav-light">
+
+            <ul class="nav" ui-nav>
+              <li class="nav-header hidden-folded">
+                <small class="text-muted">主要</small>
+              </li>
+              <li>
+                <a href="index.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe84f;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">资产</span>
+                </a>
+              </li>
+               <li>
+                <a href="trade.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe24b;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">行情</span>
+                </a>
+              </li>
+              <li>
+                <a href="trade.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe3ea;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">交易</span>
+                </a>
+              </li>
+              <li>
+                <a href="master.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe7fc;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">大师</span>
+                </a>
+              </li>
+               <li>
+                <a href="smartOrder.html">
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-label">
+                    <b class="label rounded label-sm primary"></b>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe896;
+                      <span ui-include="'../assets/images/i_1.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">订单</span>
+                </a>
+              </li>
+              <li class="primary">
+                <a href="my.account.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8e8;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">帐户</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" >
+                 <span class="nav-icon">
+                  <i class="material-icons">&#xe8fd;
+                    <span ui-include="'../assets/images/i_0.svg'"></span>
+                  </i>
+                </span>
+                <span class="nav-text">帮助</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+      <div flex-no-shrink class="b-t">
+        <div class="nav-fold">
+         <a href="#" >
+           <span class="nav-icon">
+            <i class="material-icons">&#xe8ac;
+              <span ui-include="'../assets/images/i_0.svg'"></span>
+            </i>
+          </span>
+          <span class="nav-text">退出</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- .modal -->
+    <div class="col-sm-6" style="float:right;margin-right:10px;margin-top:  20px;">
+    
+    	<button onclick="dian()" class="btn white">添加新开盘数据</button>
+    </div>
+  <div id="apisetdlg" class="modal fade" data-backdrop="true"
+ tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content " >
+      <form ui-jp="parsley">
+        <div class="box">
+          <div class="box-header">
+            <h2>添加新开盘数据</h2>
+          </div>
+          <div class="box-body">                    
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">开盘名称</label>
+              <div class="col-sm-9">
+                <input id="name" type="text" class="form-control" required placeholder="开盘名称">    
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">开盘价格</label>
+              <div class="col-sm-9">
+                <input id="kaiprice" type="number" step="0.00000001" min="0" value="0.00000001" class="form-control" placeholder="开盘价格">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">现在价格</label>
+              <div class="col-sm-9">
+                <input id="nowprice" type="number" step="0.00000001" min="0" value="0.00000001" class="form-control" placeholder="现在价格">
+              </div>
+            </div>         
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">平台名称</label>
+              <div class="col-sm-9">
+                <input id="paltform" type="text" data-parsley-type="digits" class="form-control" placeholder="平台名称">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">开盘时间</label>
+              <div class="col-sm-9">
+           <!--      <h6>Disabled days of the week</h6> -->
+         <div class='input-group date' ui-jp="datetimepicker" ui-options="{
+                  daysOfWeekDisabled: [0, 6],
+                  format: 'YYYY/MM/DD hh/mm/ss',
+                icons: {
+                  time: 'fa fa-clock-o',
+                  date: 'fa fa-calendar',
+                  up: 'fa fa-chevron-up',
+                  down: 'fa fa-chevron-down',
+                  previous: 'fa fa-chevron-left',
+                  next: 'fa fa-chevron-right',
+                  today: 'fa fa-screenshot',
+                  clear: 'fa fa-trash',
+                  close: 'fa fa-remove'
+                }
+              }">
+              <input id="time" type='text' class="form-control" placeholder="开盘时间"/>
+              <span class="input-group-addon">
+                  <span class="fa fa-calendar"></span>
+              </span>
+      </div>
+             
+              </div>
+            </div>
+          </div>
+          <div class="dker p-a text-right">
+            <button type="submit" class="btn p-x-md m-r-sm" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn p-x-md m-r-sm info" name="addNewopen">添加</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+</div>
+
+
+  <div id="m-b" class="modal" data-backdrop="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center p-lg">
+        <p>数据添加成功!请继续操作</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+
+<!-- error -->
+  <div id="m-e" class="modal" data-backdrop="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center p-lg" style="background-color: #F5F5F5;">
+        <p style="color: red;">请将数据填写完整</p>
+      </div>
+      <div class="modal-footer"   style="background-color: #F5F5F5;">
+        <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+
+</div>
+  
+
+<script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<script src="../libs/jquery/qrcode/jquery.qrcode.min.js"></script>
+<!-- Bootstrap -->
+<script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="./scripts/ui-device.js"></script>
+<script src="./scripts/ui-form.js"></script>
+<script src="./scripts/ui-nav.js"></script>
+<script src="./scripts/app.js"></script>
+<script src="./scripts/app.html.js"></script>
+
+<script type="text/javascript">
+		function dian(){
+			$('#apisetdlg').modal('show');
+		}
+		$(function(){
+			$("button[name='addNewopen']").click(function(){
+				var name=$("#name").val();
+				var kaiprice=$("#kaiprice").val();
+				var nowprice=$("#nowprice").val();
+				var paltform=$("#paltform").val();
+				var time=$("#time").val();
+			if(name=="" || kaiprice=="" || nowprice=="" || paltform=="" || time==""){
+				$('#m-e').modal('show');
+				}else{
+					 $.ajax({
+					        type: 'POST',
+					        url: "/rest/NewOpen/addNewOpen",
+					        data: {
+					        	name:name,
+					        	kaiPrice:kaiprice,
+					    		nowPrice:nowprice,
+					    		platform:paltform,
+					            time:time
+					        },
+					        dataType: 'json',
+					        success: function(json){
+							
+					            var name=$("#name").val("");
+								var kaiprice=$("#kaiprice").val("");
+								var nowprice=$("#nowprice").val("");	
+								var paltform=$("#paltform").val("");
+								var time=$("#time").val("");
+								$('#apisetdlg').modal('hide');
+								$('#m-b').modal('show');
+					
+					        }
+					   	});
+				}
+			})
+		});
+		
+	</script>
+</body>
+</html>

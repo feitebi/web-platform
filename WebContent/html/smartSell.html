@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>飞特币 -- 比特币投资好帮手</title>
+<meta name="description"
+	content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- for ios 7 style, multi-resolution icon of 152x152 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-barstyle"
+	content="black-translucent">
+
+<meta name="apple-mobile-web-app-title" content="Flatkit">
+<!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="./logo/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <link rel="shortcut icon" sizes="196x196" href="./logo/logo.png">
+<!-- style -->
+<link rel="stylesheet" href="../assets/animate.css/animate.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="../assets/glyphicons/glyphicons.css"
+	type="text/css" />
+<link rel="stylesheet"
+	href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet"
+	href="../assets/material-design-icons/material-design-icons.css"
+	type="text/css" />
+
+<link rel="stylesheet"
+	href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+<!-- build:css ../assets/styles/app.min.css -->
+<link rel="stylesheet" href="../assets/styles/app.css" type="text/css" />
+<!-- endbuild -->
+<link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+<style>
+.topTable tbody {
+	display: block;
+	height: 450px;
+	overflow-y: scroll;
+}
+
+.topTable thead, .topTable tbody tr {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.topTable thead {
+	width: calc(100% - 1em)
+}
+</style>
+</head>
+<body>
+	<div class="app" id="app">
+
+		<!-- ############ LAYOUT START-->
+
+		<!-- aside -->
+		<div id="aside" class="app-aside modal navside folded show-text w-xs">
+			<!-- fluid app aside -->
+			<div class="left navside dark" layout="column">
+				<div class="navbar no-radius">
+					<!-- brand -->
+					<a class="navbar-brand"> <img src="./logo/logo.png" alt=".">
+						<span class="hidden-folded inline text-muted">飞特币</span>
+					</a>
+					<!-- / brand -->
+				</div>
+				<div flex class="hide-scroll">
+					<nav class="scroll nav-light">
+
+						<ul class="nav" ui-nav>
+							<li class="nav-header hidden-folded"><small
+								class="text-muted">主要</small></li>
+
+							<li><a href="index.html"> <span class="nav-icon">
+										<i class="material-icons">&#xe3ea; <span
+											ui-include="'../assets/images/i_0.svg'"></span>
+									</i>
+								</span> <span class="nav-text">资产</span>
+							</a></li>
+							 <li>
+                <a href="trade.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe24b;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">行情</span>
+                </a>
+              </li>
+							<li><a href="my.api.html"> <span class="nav-icon">
+										<i class="material-icons">&#xe84f; <span
+											ui-include="'../assets/images/i_0.svg'"></span>
+									</i>
+								</span> <span class="nav-text">交易所</span>
+							</a></li>
+							<li><a href="master.html"> <span class="nav-icon">
+										<i class="material-icons">&#xe7fc; <span
+											ui-include="'../assets/images/i_0.svg'"></span>
+									</i>
+								</span> <span class="nav-text">大师</span>
+							</a></li>
+							<li class="primary"><a href="smartOrder.html"> <span
+									class="nav-caret"> <i class="fa fa-caret-down"></i>
+								</span> <span class="nav-label"> <b
+										class="label rounded label-sm primary"></b>
+								</span> <span class="nav-icon"> <i class="material-icons">&#xe896;
+											<span ui-include="'../assets/images/i_1.svg'"></span>
+									</i>
+								</span> <span class="nav-text">订单</span>
+							</a>
+								<ul class="nav-sub">
+									<li><a> <span class="nav-text">自动买卖</span>
+									</a></li>
+									<li><a href="order.history.html"> <span
+											class="nav-text">订单历史</span>
+									</a></li>
+
+								</ul></li>
+							<li><a href="my.account.html"> <span class="nav-icon">
+										<i class="material-icons">&#xe8e8; <span
+											ui-include="'../assets/images/i_0.svg'"></span>
+									</i>
+								</span> <span class="nav-text">帐户</span>
+							</a></li>
+
+							<li><a href="#"> <span class="nav-icon"> <i
+										class="material-icons">&#xe8fd; <span
+											ui-include="'../assets/images/i_0.svg'"></span>
+									</i>
+								</span> <span class="nav-text">帮助</span>
+							</a></li>
+
+						</ul>
+					</nav>
+				</div>
+				<div flex-no-shrink class="b-t">
+					<div class="nav-fold">
+						<a onclick="logOut()"> <span class="nav-icon"> <i
+								class="material-icons">&#xe8ac; <span
+									ui-include="'../assets/images/i_0.svg'"></span>
+							</i>
+						</span> <span class="nav-text">退出</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- / -->
+
+		<!-- content -->
+		<div id="content" class="app-content box-shadow-z0" role="main">
+			<div class="app-header white box-shadow">
+				<div class="navbar">
+					<!-- Open side - Naviation on mobile -->
+					<a data-toggle="modal" data-target="#aside"
+						class="navbar-item pull-left hidden-lg-up"> <i
+						class="material-icons">&#xe5d2;</i>
+					</a>
+					<!-- / -->
+
+					<!-- Page title - Bind to $state's title -->
+					<div class="navbar-item pull-left h5"
+						ng-bind="$state.current.data.title" id="pageTitle"></div>
+
+				
+					<ul
+						class="nav navbar-nav pull-left nav-active-border  header-nav">
+						<li class="nav-item p-l-sm"><a href="smartBuy.html"
+							class="nav-link " ui-sref="app.dashboard" ui-sref-active="active">
+								<span class="nav-text">智能合约买入</span>
+						</a></li>
+						<li class="nav-item p-l-sm"><a href="smartSell.html"
+							class="nav-link active" ui-sref="app.dashboard"
+							ui-sref-active="active"> <span class="nav-text ">智能合约卖出</span>
+						</a></li>
+					</ul>
+					<!-- / navbar collapse -->
+				</div>
+			</div>
+			<div class="app-footer">
+				<div class="p-a text-xs">
+					<div class="pull-right text-muted">
+						&copy; Copyright <strong>Dag</strong> <span class="hidden-xs-down">-
+							v1.1.1</span> <a ui-scroll-to="content"><i
+							class="fa fa-long-arrow-up p-x-sm"></i></a>
+					</div>
+					<div class="nav">
+						<a class="nav-link" href="../">About</a> <span class="text-muted">-</span>
+					</div>
+				</div>
+			</div>
+			<div ui-view class="app-body" id="view">
+				<div class=row>
+					<div class="box">
+						<div class="box-header ">
+							<p style="font-size: 30px; margin-left: 1%;">智能卖出</p>
+							<small style="margin-left: 1%;">定制个性化智能卖出方案</small>
+						</div>
+						<div style="height: 650px;">
+							<div
+								class="box-body pull-right hidden-xs-down col-md-6 col-xs-12"
+								style="background-color: white; margin-top: 40px;">
+								<ul class="timeline">
+									<li class="tl-header"><span class="label pink"
+										style="font-size: 16px;">制定策略</span></li>
+
+									<li class="tl-item">
+										<div class="tl-wrap ">
+											<span class="tl-date  text-muted">第一步</span>
+											<div class="col-sm-8">
+												<div class="box-color primary  pos-rlt">
+													<span class="arrow b-primary left"></span>
+													<div class="box-body">智能卖出界面，您可以根据需要选择按价格模型卖出或按指定价格卖出</div>
+													<div class="box-body">当您填写完相关信息后可以选择直接挂单或进入下一步智能买入（推荐使用）</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="tl-item">
+										<div class="tl-wrap">
+											<span class="tl-date text-muted">第二步</span>
+											<div class="col-sm-8">
+												<div class="box-color white pos-rlt">
+													<span class="arrow left b-white"></span>
+													<div class="box-body">智能买入界面，您可以根据需要选择按价格模型买入或按指定价格买入</div>
+													<div class="box-body">填写完相关信息后，点击确定买入，我们会自动帮您下单</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="tl-header"><span class="label success "
+										style="font-size: 16px;">躺赚模式开启</span></li>
+								</ul>
+
+							</div>
+							<div class="box-body pull-left col-md-6 col-xs-12"
+								style="background-color: white;">
+								<div>
+									<div class="b-b ">
+										<ul class="nav nav-tabs "
+											style="margin-left: 2%;">
+											<li class="nav-item"><a onclick="clearNumAndPrice()" class="nav-link active" href
+												data-toggle="tab"  data-target="#tab1">价格模型</a></li>
+											<li class="nav-item"><a onclick="clearNumAndPrice()" class="nav-link" href
+												data-toggle="tab" data-target="#tab2">指定价格</a></li>
+										</ul>
+									</div>
+									<div class="tab-content p-a m-b-md">
+										<div class="tab-pane animated fadeIn text-muted active"
+											id="tab1">
+											<div class="row">
+												<div class="box">
+													<div class="box-header">
+														<h2>自定义价格模型</h2>
+														<small>请根据您自己的需求选择合适的卖出价格，我们会根据您选择的价格模型，在适当的时间帮您卖出</small>
+													</div>
+													<div class="box-divider m-a-0"></div>
+													<div class="box-body">
+														<div id="pricemodalform">
+
+															<div class="row m-b">
+																<div class="col-sm-6">
+																	<h6>请选择交易平台</h6>
+																	<select required
+																		class="form-control c-select m-y platformlist"
+																		id="platform1">
+
+																	</select>
+																</div>
+																<div class="col-sm-6">
+																	<h6>请选择币种</h6>
+																	<select required
+																		class="form-control c-select m-y coinlist"
+																		id="coinname1">
+
+																	</select>
+																</div>
+															</div>
+															<div class="row m-b">
+																<div class="col-sm-6">
+																	<label>请选择价格模型</label> <select required
+																		class="form-control c-select m-y" id="pricerule">
+																		<option value="3">三天最高价</option>
+																		<option value="7">七天最高价</option>
+																		<option value="30">三十天最高价</option>
+																	</select>
+																</div>
+																<div class="col-sm-6">
+																	<label>请选择利润率</label> <select required
+																		class="form-control c-select m-y" id="profit">
+																		<option value="0.1">10%</option>
+																		<option value="0.3">30%</option>
+																		<option value="0.5">50%</option>
+																		<option value="1">100%</option>
+																	</select>
+																</div>
+															</div>
+															<div class="row m-b">
+																<div class="col-sm-6">
+																	<label>价格下限</label><label
+																		class='pull-right text-warning nowmsg'></label> <input
+																		id="low" type="number" class="form-control nowprice"
+																		placeholder="不能低于" required>
+
+																</div>
+																<div class="col-sm-6">
+																	<label>卖出数量</label><label
+																		class='pull-right text-warning nummsg '></label> <input
+																		id="num1" type="number" class="form-control inputnum"
+																		placeholder="出售数量" required>
+
+																</div>
+															</div>
+
+															<div class="row m-b">
+																<input type="button" style="margin-left: 1.5%;"
+																	class="btn  pull-left" onclick="directpush1()"
+																	value="直接挂单" /> <input type="button"
+																	class="btn  pull-right" onclick="nextsmart1()"
+																	value="下一步（智能买入）" style="margin-right: 1.5%;" />
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+
+										</div>
+										<div class="tab-pane animated fadeIn text-muted " id="tab2">
+											<div class="row">
+												<div class="box">
+													<div class="box-header">
+														<h2>指定卖出价格</h2>
+														<small>指定您想要的卖出价格，一旦达到该价格我们会马上帮您卖出</small>
+													</div>
+													<div class="box-divider m-a-0"></div>
+													<div class="box-body">
+														<div id="absolutefrom">
+															<div class="row m-b" style="padding-bottom: 30px;">
+																<div class="col-sm-6">
+																	<h6>请选择交易平台</h6>
+																	<select required
+																		class="form-control c-select m-y platformlist"
+																		id="platform2">
+																	</select>
+																</div>
+																<div class="col-sm-6">
+																	<h6>请选择币种</h6>
+																	<select required
+																		class="form-control c-select m-y  coinlist"
+																		id="coinname2">
+
+																	</select>
+																</div>
+															</div>
+															<div class="row m-b" style="padding-bottom: 30px;">
+																<div class="col-sm-6">
+																	<label>指定价格</label><label
+																		class='pull-right text-warning nowmsg'></label> <input
+																		id="absolutesell" type="number"
+																		class="form-control nowprice" placeholder="指定卖出价格"
+																		required>
+																</div>
+																<div class="col-sm-6">
+																	<label>卖出数量</label><label
+																		class='pull-right text-warning nummsg'></label> <input
+																		id="num2" type="number" class="form-control inputnum"
+																		placeholder="出售数量" required>
+
+																</div>
+															</div>
+															<div class="row m-b">
+																<input type="button" style="margin-left: 1.5%;"
+																	class="btn  pull-left" onclick="directpush2()"
+																	value="直接挂单" /> <input type="button"
+																	class="btn  pull-right"
+																	style="margin-right: 1.5%;" onclick="nextsmart2()"
+																	value="下一步（智能买入）" />
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- .modal -->
+<div id="SellModal" class="modal fade" data-backdrop="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h5 class="modal-title">提示消息</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+        <p id="modalMsg" style="font-size:20px;"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">关闭</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+<!-- / .modal -->
+	<!-- build:js ././scripts/app.html.js -->
+	<!-- jQuery -->
+	<script src="../libs/jquery/jquery/dist/jquery.js"></script>
+	<!-- Bootstrap -->
+	<script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+	<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="../libs/js/echarts/build/dist/echarts-all.js"></script>
+	<script src="./scripts/ui-device.js"></script>
+	<script src="./scripts/ui-form.js"></script>
+	<script src="./scripts/ui-nav.js"></script>
+	<script src="./scripts/strategy.js"></script>
+
+	<script src="./js/common.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+	<!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>币大师 -- 比特币投资好帮手</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="../assets/styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+<style type="text/css">
+	.bdh{
+		text-align: center;	
+	}	
+</style>
+</head>
+<body >
+ <div class="tab-pane" id="tab-5" >
+        <div class="p-a-md dker _600">
+		 用户名：<span id="username"></span>&nbsp;&nbsp;&nbsp;
+                     可用BDH：<span id="freedomBDH"></span>
+                       冻结BDH：<span id="freezingbdh"></span>￥
+		</div>
+        <div class="p-a-md"  style="margin: 0px auto;width: 500px;height:700px;">
+          <div class="clearfix m-b-lg" >
+              <div class="form-group">
+                <label>数量：</label><label id="PushNumMsg" class='pull-right'></label>
+                <input type="number" id="bdhNum"  onkeyup="changePushnum()" class="form-control" placeholder="BDH">
+              </div>
+              <div class="form-group">
+                <label>单价：</label><label id="PushPriceMsg" class='pull-right'></label>
+                <input type="number" id="bdhPrice"  onkeyup="changePushPrice()" class="form-control" placeholder="￥">
+              </div>
+               <div class="form-group">
+                <p class="bdh">总价：<span id="sum">0</span>￥</p>
+                <!-- p class="bdh"><input type="checkbox" checked="checked" disabled="disabled" />整单出售</p> -->
+              </div>
+              <button id="surePushButton" type="submit" class="btn btn-info m-t" style="margin-left:180px;" disabled="disabled" onClick="guadan()">确认挂单</button>
+        </div>
+  <div class="col-sm-6" style="width: 600px;margin-left:-70px;">
+      <div class="box" >
+        <div class="box-header">
+          <h2>我的挂单列表</h2>
+          <a id="nextPage" class="btn btn-xs white pull-right" style="margin-right:5px;">下一页</a>
+          <a id="lastPage" class="btn btn-xs white pull-right" style="margin-right:2px;">上一页</a>
+        </div>
+        <table class="table table-striped b-t">
+          <thead>
+            <tr>
+             <th>大师币</th>
+			<th>数量</th>
+			<th>单价</th>
+			<th>总额</th>
+			<th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="myPushtbody">   
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div id="pushModal" class="modal" data-backdrop="true">
+  <div class="row-col h-v">
+    <div class="row-cell v-m">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body text-center p-lg">
+            <h6 id="pushh5">挂单成功</h6>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">关闭</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- build:js ././scripts/app.html.js -->
+<!-- jQuery -->
+<script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+<script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../libs/js/echarts/build/dist/echarts-all.js"></script>
+<script src="./scripts/ui-device.js"></script>
+<script src="./scripts/ui-form.js"></script>
+<script src="./scripts/ui-nav.js"></script>
+<script src="./scripts/common.js"></script>
+<script type="text/javascript">
+	var Pushnum=0;
+	var Pushprice=0;
+	var formAddr="北京";
+	var formKey="123456";
+	var id="";
+	$(function(){
+		showMydata();
+/* 		showLastBlance(); */
+		freedomBDH();
+		$("#nextPage").click(function(){
+			start+=limit;
+			if(start>=max){
+				start=max-limit;
+				if(start<=0){
+					start=0;
+				}
+			}
+			showMydata();
+		});
+		$("#lastPage").click(function(){
+			start-=limit;
+			if(start<=0){
+				start=0;
+			}
+			showMydata();
+		});
+	});
+</script>
+</body>
+</html>

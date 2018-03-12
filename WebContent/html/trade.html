@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>飞特币 -- 社交化加密币投顾工具</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="../assets/styles/app.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+  <style>
+  .fa-xs {
+    font-size: 0.4em;
+  }
+  table{
+      table-layout:fixed;
+  }
+  td{
+      word-break:keep-all;
+      white-space:nowrap;
+      overflow:hidden;
+   }
+    .topTable tbody {
+      display:block;
+      height:669px;
+      overflow-y:scroll;
+    }
+    
+    .topTable thead, .topTable tbody tr {
+      display:table;
+      width:100%;
+      table-layout:fixed;
+      
+    }
+    .topTable tbody tr:hover{
+      cursor: pointer;
+      background: #f9f9f9;
+      color: #555;
+    }
+    
+    .topTable thead {
+      width: calc( 100% - 1em )
+    }
+    #sellDlg .input-group-addon, #buyDlg .input-group-addon{
+      min-width: 80px;
+    }
+    .coinSpan{
+      min-width: 55px;
+    }
+    .lsp2{
+      letter-spacing: 1px;
+    }
+    .dashBorderBot{
+      border-bottom:1px dashed #555;
+    }
+    .lineBorderBot{
+      border-bottom:1px solid #555;
+    }
+    /*********app.css customize***********/
+    .success {
+      background-color: #2BDE73;
+    }
+    .b-success {
+      border-color: #2BDE73; }
+      .text-success,
+      .text-success-hover a:hover {
+        color: #2BDE73 !important; }
+      </style>
+    </head>
+    <body>
+      <div class="app" id="app">
+
+        <!-- ############ LAYOUT START-->
+
+        <!-- aside -->
+        <div id="aside" class="app-aside modal navside folded show-text w-xs">
+         <!-- fluid app aside -->
+         <div class="left navside dark" layout="column">
+           <div class="navbar no-radius">
+            <!-- brand -->
+            <a class="navbar-brand">
+             <img src="./logo/logo.png" alt=".">
+             <span class="hidden-folded inline text-muted">飞特币</span>
+           </a>
+           <!-- / brand -->
+         </div>
+         <div flex class="hide-scroll">
+          <nav class="scroll nav-light">
+
+            <ul class="nav" ui-nav>
+              <li class="nav-header hidden-folded">
+                <small class="text-muted">主要</small>
+              </li>
+
+              <li>
+                <a href="index.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe3ea;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">资产</span>
+                </a>
+              </li>
+               <li class="primary">
+                <a href="trade.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe24b;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">行情</span>
+                </a>
+              </li>
+               <li >
+                <a href="my.api.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe84f;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">交易所</span>
+                </a>
+              </li>
+              <li>
+                <a href="master.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe7fc;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">大师</span>
+                </a>
+              </li>
+               <li>
+                <a href="smartOrder.html">
+                  <span class="nav-caret">
+                    <i class="fa fa-caret-down"></i>
+                  </span>
+                  <span class="nav-label">
+                    <b class="label rounded label-sm primary"></b>
+                  </span>
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe896;
+                      <span ui-include="'../assets/images/i_1.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">订单</span>
+                </a>
+                <ul class="nav-sub">
+                  <li>
+                    <a>
+                      <span class="nav-text">自动买卖</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="order.history.html" >
+                      <span class="nav-text">订单历史</span>
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+              <li>
+                <a href="my.account.html" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe8e8;
+                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">帐户</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" >
+                 <span class="nav-icon">
+                  <i class="material-icons">&#xe8fd;
+                    <span ui-include="'../assets/images/i_0.svg'"></span>
+                  </i>
+                </span>
+                <span class="nav-text">帮助</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+      <div flex-no-shrink class="b-t">
+        <div class="nav-fold">
+         <a onclick="logOut()" >
+           <span class="nav-icon">
+            <i class="material-icons">&#xe8ac;
+              <span ui-include="'../assets/images/i_0.svg'"></span>
+            </i>
+          </span>
+          <span class="nav-text">退出</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / -->
+
+<!-- content -->
+<div id="content" class="app-content box-shadow-z0" role="main">
+  <div class="app-header white box-shadow ">
+    <div class="navbar">
+      <!-- Open side - Naviation on mobile -->
+      <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up">
+        <i class="material-icons">&#xe5d2;</i>
+      </a>
+      <!-- / -->
+      
+      <!-- Page title - Bind to $state's title -->
+      <div class="navbar-item pull-left h5 p-l-sm hidden-folded hidden-lg-down text-muted" ng-bind="$state.current.data.title" id="pageTitle">飞特币</div>
+      
+      <!-- navbar right -->
+
+      <!-- navbar collapse -->
+      <ul class="nav navbar-nav pull-right  b-primary header-nav m-r-sm">
+       <li class="nav-item ">
+          <a href="javascript:changeEx('my');" class="my nav-link" ui-sref="app.dashboard" ui-sref-active="active">
+            <span class="nav-text">我的</span>
+          </a>
+        </li> 
+         <li class="nav-item ">
+          <a href="javascript:changeEx('Hitbtc');" class="Hitbtc nav-link" ui-sref="app.dashboard" ui-sref-active="active">
+            <span class="nav-text">Hitbtc</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="javascript:changeEx('Poloniex');" class="Poloniex nav-link" ui-sref="app.dashboard" ui-sref-active="active">
+            <span class="nav-text">Poloniex</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="javascript:changeEx('Bittrex');" class="Bittrex nav-link" ui-sref="app.dashboard" ui-sref-active="active">
+            <span class="nav-text">Bittrex</span>
+          </a>
+        </li>
+       
+       <li class="nav-item">
+          <a href="javascript:changeEx('Bleutrade');" class="Hitbtc nav-link" ui-sref="app.dashboard" ui-sref-active="active">
+            <span class="nav-text">Bleutrade</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a href="javascript:changeEx('Btc38');" class="Btc38 nav-link" ui-sref="app.dashboard" ui-sref-active="active">
+            <span class="nav-text">Btc38</span>
+          </a>
+        </li> -->
+        <!--  <li class="nav-item">
+          <a href="javascript:changeEx('BTER');" class="BTER nav-link" ui-sref="app.dashboard" ui-sref-active="active">
+            <span class="nav-text">BTER</span>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a href="javascript:changeEx('Livecoin');" class="Jubi nav-link" ui-sref="app.dashboard" ui-sref-active="active">
+            <span class="nav-text">Livecoin</span>
+          </a>
+        </li>
+       <!--  <li class="nav-item dropdown">
+          <a href class="nav-link" data-toggle="dropdown">
+            <i class="material-icons">&#xe5c3;</i>
+            <span class="label label-sm up danger">6</span>
+          </a>
+          <div class="dropdown-menu w-md text-color pull-right p-a-0 animated flipInX text-xs">
+            <div class="row no-gutter text-primary-hover">
+              <div class="col-xs-4 b-r b-b">
+                <a class="p-t-sm p-b-sm block text-center">
+                  <img src="../assets/images/zaif.png" width="32" />
+                  <span class="block">Bleutrade</span>
+                </a>
+              </div>
+              <div class="col-xs-4 b-r b-b">
+                <a class="p-t-sm p-b-sm block text-center">
+                  <img src="../assets/images/coincheck.ico" width="32" />
+                  <span class="block">C-Cex</span>
+                </a>
+              </div>
+              <div class="col-xs-4 b-b">
+                <a href="javascript:changeEx('Bitfinex');"  class="p-t-sm p-b-sm block text-center">
+                  <img src="../assets/images/bitfinex.ico" width="32" />
+                  <span class="block">Bitfinex</span>
+                </a>
+              </div>
+              <div class="col-xs-4 b-r">
+                <a class="p-t-sm p-b-sm block text-center">
+                  <img src="../assets/images/bitFlyer.png" width="32" />
+                  <span class="block">BitFlyer</span>
+                </a>
+              </div>
+              <div class="col-xs-4 b-r">
+                <a class="p-t-sm p-b-sm block text-center">
+                  <img src="../assets/images/bitstamp.ico" width="32" />
+                  <span class="block">Cryptopia</span>
+                </a>
+              </div>
+              <div class="col-xs-4">
+                <a href="javascript:changeEx('Livecoin');" class="p-t-sm p-b-sm block text-center">
+                  <img src="../assets/images/bittrex.ico" width="32" />
+                  <span class="block">LiveCoin</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li> -->
+
+      </ul>
+      <!-- / navbar collapse -->
+    </div>
+  </div>
+  <div class="app-footer">
+    <div class="p-a text-sm">
+      <div class="pull-right text-muted">
+        &copy; Copyright <strong>飞特币</strong> <span class="hidden-xs-down">v0.1.1</span>
+        <a ui-scroll-to="content"><i class="fa fa-long-arrow-up p-x-sm"></i></a>
+      </div>
+      <div class="nav p-l-sm">
+        <a class="nav-link" href="about.html">关于我们</a> 
+        <a class="nav-link p-l-sm" href="contact.html">在线客服</a>
+      </div>
+    </div>
+  </div>
+  <div ui-view class="app-body">
+
+    <!-- ############ PAGE START-->
+  
+
+  <div class="padding">
+     <div class="row">
+      <div class="col-md-8 col-xs-12 hidden-md-down">
+        <div class="box">
+              <div class="box-header">
+                  <h5 id='chartCoinName' class="chartCoinName text-sm">&nbsp;</h5>
+                 </div>
+                 <div class="box-tool">
+                  <ul class="nav">
+                    <li class="nav-item inline">
+                      <a class="nav-link" href="javascript:refreshChart('');">
+                        <i class="material-icons md-18">&#xe863;</i>
+                      </a>
+                    </li>
+                    <li class="nav-item inline dropdown">
+                      <a class="nav-link" data-toggle="dropdown">
+                        <i class="material-icons md-18">&#xe5d4;</i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-scale pull-right">
+                        <a class="dropdown-item" href="javascript:refreshChart('1');">1min</a>
+                        <a class="dropdown-item" href="javascript:refreshChart('5');">5min</a>
+                        <a class="dropdown-item" href="javascript:refreshChart('15');">15min</a>
+                        <a class="dropdown-item" href="javascript:refreshChart('30');">30min</a>
+                        <a class="dropdown-item" href="javascript:refreshChart('60');">1hour</a>
+                        <a class="dropdown-item" href="javascript:refreshChart('120');">2hour</a>
+                        <a class="dropdown-item" href="javascript:refreshChart('180');">3hour</a>
+                        <a class="dropdown-item" href="javascript:refreshChart('240');">4hour</a>
+                        <a class="dropdown-item" href="javascript:refreshChart('720');">12hour</a>
+                        <a class="dropdown-item" href="javascript:refreshChart('1440');">1day</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="box-body">
+                  <div ui-jp="chart" id='kECharts' ui-options="" style="height:280px;" >
+                  <p class="text-center p-t-lg text-lg">加载中...<p>
+                  </div>
+              </div>
+       </div>
+       <div class="row hidden-md-down p-t-sm">
+        <div class="col-md-6 col-xs-12">
+          <div class="box">
+            <div class="modal-header light">
+              <span class="modal-title h6">买入 </span> <span id='buyCoinName' class='buyCoinName pull-right h6'></span>
+            </div>
+            <div class="modal-body p-l-md p-r-md">
+             <div class='row'>
+               <div class="col-md-6 col-xs-6 text-sm">您还剩余：</div>
+               <div class="col-md-6 col-xs-6 text-right"><a href='javascript:setBuyQty();' id='myBuyBtcQty' class='text-info dashBorderBot m-r-sm myBuyBtcQty'>0.00000000</a> BTC</div>
+             </div>
+             <div class='row'>
+               <div class="col-md-6 col-xs-6 text-sm">最低叫价：</div>
+               <div class="col-md-6 col-xs-6 text-right"><a href='javascript:setBuyRate();' id='buyPriceRate' class='text-dark m-r-sm dashBorderBot buyPriceRate'>0.00000000</a> BTC</div>
+             </div>
+             <hr/>
+             <form ui-jp="parsley">
+              <div class="form-group row ">
+                <label for="buyRate" class="col-md-2 col-xs-2 form-control-label text-sm">价格</label>
+                <div class="col-md-10 col-xs-10 input-group-sm">
+                  <input type="number" class="form-control text-right input-sm" id="buyRate" placeholder="价格" precision="10" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="buyAmt" class="col-md-2 col-xs-2 form-control-label text-sm">数量</label>
+                <div class="col-md-10 col-xs-10">
+                  <div class="input-group input-group-sm">
+                    <input type="number" class="form-control text-right" id="buyAmt" placeholder="数量" precision="10" required>
+                    <span class="input-group-addon buyCoinName">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  </div>
+                </div>
+              </div>
+              <hr/>
+              <div class="form-group row">
+               <label for="buyTotalQty" class="col-md-2 col-xs-2 form-control-label text-sm">总额</label>
+               <div class="col-md-10 col-xs-10">
+                <div class="input-group input-group-sm">
+                  <input type="number" class="form-control text-right" id="buyTotalQty" placeholder="总额" precision="10" required>
+                  <span class="input-group-addon">BTC</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label for="s" class="col-md-6 col-xs-6 text-xs">&nbsp;</label>
+              <div class="col-md-6 col-xs-6 text-right text-xs">
+               <span class='text-muted p-r-sm'>费:</span> <span id='buyFee'>0.0000</span> <span class='text-muted'>BDH</span>
+             </div>
+           </div>
+         </form>
+       </div>
+       <div class="modal-footer">
+        <a href='order.scbuy.html' class='dark-white p-t-sm pull-left lineBorderBot m-l-sm'>智能买入</a>
+        <button type="button" id='buyBtn' class="btn success p-x-md m-r-sm disabled" onclick='javascript:buyNow();'>立即买入</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xs-12">
+   <div class="box">
+     <div class="modal-header light">
+      <span class="modal-title h6">卖出 </span> <span id='sellCoinName' class='sellCoinName pull-right h6'></span>
+    </div>
+    <div class="modal-body p-l-md p-r-md">
+     <div class='row'>
+       <div class="col-md-4 col-xs-4 text-sm">钱包还剩余：</div>
+       <div class="col-md-8 col-xs-8 text-right">
+         <div class='row'> <div class="col-md-9 col-xs-9 text-right">
+          <a href='javascript:setSellQty();' id='mySellCoinQty' class='text-info dashBorderBot mySellCoinQty'>0.00000000</a></div>
+          <div class="col-md-3 col-xs-3 text-right"><span id='sellCoinName' class='sellCoinName'></span></div>
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+     <div class="col-md-4 col-xs-4 text-sm">最高成交价：</div>
+     <div class="col-md-8 col-xs-8 text-right">
+      <div class='row'> <div class="col-md-9 col-xs-9 text-right">
+       <a href='javascript:setSellRate();' id='sellPriceRate' class='text-dark dashBorderBot sellPriceRate'>0.00000000</a></div>
+       <div class="col-md-3 col-xs-3 text-right">BTC</div>
+     </div>
+   </div>
+ </div>
+ <hr/>
+ <form ui-jp="parsley">
+  <div class="form-group row">
+    <label for="sellRate" class="col-md-2 col-xs-2 form-control-label text-sm">价格</label>
+    <div class="col-md-10 col-xs-10 input-group-sm">
+      <input type="number" class="form-control text-right sellInput" id="sellRate" placeholder="价格" precision="10" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="sellAmt" class="col-md-2 col-xs-2 form-control-label text-sm">数量</label>
+    <div class="col-md-10 col-xs-10">
+      <div class="input-group input-group-sm">
+        <input type="number" class="form-control text-right sellInput" id="sellAmt" placeholder="数量" precision="10" required>
+        <span class="input-group-addon sellCoinName">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="form-group row">
+    <label for="sellTotalQty" class="col-md-2 col-xs-2 form-control-label text-sm">总额</label>
+    <div class="col-md-10 col-xs-10">
+      <div class="input-group input-group-sm">
+        <input type="number" class="form-control text-right sellInput" id="sellTotalQty" placeholder="总额" precision="10" required>
+        <span class="input-group-addon">BTC</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <label for="s" class="col-md-6 col-xs-6 text-xs"><span class='text-muted'>费:</span> 0.0000 <span class='text-muted'>BDH</span></label>
+    <div class="col-md-6 col-xs-6 text-right text-xs">
+     <span class='text-muted p-r-sm'>盈利:</span> <span id='sellProfit'>0.00000000</span> <span class='text-muted'>BTC</span> 
+   </div>
+ </div>
+</form>
+</div>
+<div class="modal-footer">
+  <a href='order.scsell.html' class='dark-white p-t-sm pull-left lineBorderBot m-l-sm'>智能卖出</a>
+  <button type="button" id='sellBtn' class="btn danger p-x-md m-r-sm disabled" onclick='javascript:sellNow();'>立即卖出</button>
+</div>
+</div>
+</div>
+</div>     
+</div>
+<div class="col-md-4 col-xs-12">
+  <div class="box dark">
+    <div class="box-header b-b h6">
+      <span>实时行情</span> (<span class='text-primary' id='platformTag'>Poloniex</span>)
+    </div>
+    <div class="table-responsive">
+        <div class="b-b b-primary nav-active-primary">
+          <ul class="nav nav-tabs p-l-sm realTimeNav">
+            <li class="nav-item active p-l-sm">
+              <a class="nav-link primary" href data-toggle="tab" onclick="changePariName('BTC')" data-target="#tab1">BTC</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href data-toggle="tab" onclick="changePariName('ETH')" data-target="#tab2">ETH</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href data-toggle="tab" onclick="changePariName('USDT')" data-target="#tab3">USDT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href data-toggle="tab" onclick="changePariName('CNY')" data-target="#tab4">CNY</a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content" id='realtimeDataTable'>
+          <div class="tab-pane animated fadeIn active text-muted" id="tab1">
+            <table class="table-sm topTable text-xs display" id='tikerListBTC'>
+              <thead>
+                <tr style="white-space:nowrap">
+                  <th class='p-l-sm'>&nbsp;&nbsp;&nbsp;名称</th>
+                  <th>价格</th>
+                  <th>涨跌</th>
+                  <th>交易量</th>
+                </tr>
+              </thead>
+              <tbody class="text-xs">
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane animated fadeIn text-muted" id="tab2">
+            <table class="table table-sm topTable text-xs display" id='tikerListETH'>
+              <thead>
+                <tr style="white-space:nowrap">
+                  <th class='p-l-sm'>&nbsp;&nbsp;&nbsp;名称</th>
+                  <th>价格</th>
+                  <th>涨跌</th>
+                  <th>交易量</th>
+                </tr>
+              </thead>
+              <tbody class="text-xs">
+
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane animated fadeIn text-muted" id="tab3">
+            <table class="table table-sm topTable text-xs display" id='tikerListUSDT'>
+              <thead>
+                <tr style="white-space:nowrap">
+                  <th class='p-l-sm'>&nbsp;&nbsp;&nbsp;名称</th>
+                  <th>价格</th>
+                  <th>涨跌</th>
+                  <th>交易量</th>
+                </tr>
+              </thead>
+              <tbody class="text-xs">
+
+              </tbody>
+            </table>
+          </div>
+           <div class="tab-pane animated fadeIn text-muted" id="tab4">
+            <table class="table table-sm topTable text-xs display" id='tikerListCNY'>
+              <thead>
+                <tr style="white-space:nowrap">
+                  <th class='p-l-sm'>&nbsp;&nbsp;&nbsp;名称</th>
+                  <th>价格</th>
+                  <th>涨跌</th>
+                  <th>交易量</th>
+                </tr>
+              </thead>
+              <tbody class="text-xs">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row p-t-sm">
+  <div class="col-md-6 col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <a class="btn btn-sm white pull-right"><i class='fa fa-fw fa-refresh'></i></a>
+        <h3>大师挂单买入</h3>
+        <small class='text-muted text-sm p-t-sm'>我关注的大师的挂单买入</small>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped b-t text-sm">
+          <thead>
+            <tr style="white-space:nowrap">
+              <th>名称</th>
+              <th>希望买入价</th>
+              <th>买入量</th>
+              <th>创建时间</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <a class="btn btn-sm white pull-right"><i class='fa fa-fw fa-refresh'></i></a>
+        <h3>大师挂单卖出</h3>
+        <small class='text-muted text-sm p-t-sm'>我关注的大师的挂单卖出</small>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped b-t text-sm">
+          <thead>
+            <tr style="white-space:nowrap">
+              <th>名称</th>
+              <th>买入均价</th>
+              <th>卖出价</th>
+              <th>卖出量</th>
+              <th>可获利</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row p-t-sm">
+  <div class="col-md-6 col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <a class="btn btn-sm white pull-right"><i class='fa fa-fw fa-refresh'></i></a>
+        <h3>我的挂单买入</h3>
+        <small class='text-muted text-sm p-t-sm'>正在准备买入的资产</small>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped b-t text-sm">
+          <thead>
+            <tr style="white-space:nowrap">
+              <th>希望买入价</th>
+              <th>买入量</th>
+              <th>金额</th>
+              <th>创建时间</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <a class="btn btn-sm white pull-right"><i class='fa fa-fw fa-refresh'></i></a>
+        <h3>我的挂单卖出</h3>
+        <small class='text-muted text-sm p-t-sm'>正在准备出售的资产</small>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped b-t text-sm">
+          <thead>
+            <tr style="white-space:nowrap">
+              <th>买入均价</th>
+              <th>卖出价</th>
+              <th>卖出量</th>
+              <th>可获利</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- ############ PAGE END-->
+
+</div>
+</div>
+<!-- / -->
+
+<!-- .modal -->
+<div id="apiSetDlg" class="modal" data-backdrop="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h5 class="modal-title">设置API</h5>
+      </div>
+      <div class="modal-body p-t-md p-b-lg p-a-md">
+        <p class='p-b-sm'>请设置<span id='platform'></span> API</p>
+        <input type="text" id='key' class="form-control rounded m-t-sm" placeholder='API key'/>
+        <input type="text" id='secret' class="form-control rounded m-t-md" placeholder='API Secret'>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn danger p-x-md m-r-sm" onclick='javascript:addApi();'>确定</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+
+
+<!-- small modal -->
+<div id="msgDlg" class="modal" data-backdrop="true">
+  <div class="row-col h-v">
+    <div class="row-cell v-m">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+          	<h5 class="modal-title">提示</h5>
+          </div>
+          <div class="modal-body text-center p-lg">
+            <p id='msgTips'></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn info p-x-md" data-dismiss="modal">OK</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / .modal -->
+
+<!-- small modal -->
+<div id="confirmDlg" class="modal" data-backdrop="true">
+  <div class="row-col h-v">
+    <div class="row-cell v-m">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-md">暂时不能卖出</h5>
+          </div>
+          <div class="modal-body p-a-md text-sm">
+            <p>该币资产处于待处理订单中，需要删除它才能进行卖出。</p>
+            <p>您可以去：<a class='text-info' href='order.stoplimit.html'>订单列表</a> 取消它。</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn white p-x-md" data-dismiss="modal">关闭</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / .modal -->
+
+<!-- ############ LAYOUT END-->
+
+</div>
+<!-- build:js ././scripts/app.html.js -->
+<!-- jQuery -->
+  <script src="../libs/jquery/jquery/dist/jquery.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+  <script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+
+
+  <script src="../libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="../libs/jquery/PACE/pace.min.js"></script>
+
+  <script src="scripts/config.lazyload.js"></script>
+
+
+  <script src="scripts/palette.js"></script>
+  <script src="scripts/ui-load.js"></script>
+  <script src="scripts/ui-jp.js"></script>
+  
+  <script src="scripts/ui-device.js"></script>
+  <script src="scripts/ui-form.js"></script>
+  <script src="scripts/ui-nav.js"></script>
+  <script src="scripts/ui-screenfull.js"></script>
+  <script src="scripts/ui-scroll-to.js"></script>
+  <script src="scripts/ui-toggle-class.js"></script>
+
+  <script src="scripts/app.js"></script>
+
+  <!-- ajax -->
+  <script src="../libs/jquery/jquery-pjax/jquery.pjax.js"></script>
+  <script src="scripts/ajax.js"></script>
+
+  <script src="../libs/jquery/datatables/media/js/jquery.dataTables.min.js"></script>
+
+ 
+  <script src="./js/common.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+    $('table').DataTable({"bFilter": false,"bPaginate": false,"bLengthChange":false,"bInfo": false,"destroy":true,
+        "oLanguage": {
+          "sZeroRecords": "暂无数据",
+          "sInfoEmtpy": "暂无数据",
+          "sProcessing": "正在加载中..."
+          },
+        "aaSorting": [[ 2, "desc" ]] 
+    });
+
+    var pf = getStorageJson(PLATFORM);
+    $('.nav-link').removeClass('active');
+    $('.'+pf).addClass('active');
+
+    $('#platformTag').html(pf);
+
+    if (isLogin()) {
+
+      returnCompleteBalances();
+
+      setInterval(returnTicker, 3000);
+
+      setTimeout(returnMyTradeHistory,1200);
+
+      //setInterval(returnExchanges, 20000);
+    } else {
+      window.location.href='signin.html';
+    }
+
+    if(isMobile.any()) {
+     $('.hidden-md-down').empty();
+     $('#tikerList tbody').css('height:350px');
+   }
+
+ });
+  
+  function setSellQty() {
+   $('#sellAmt').val($('#mySellCoinQty').text());
+   var rate = parseFloat($('#sellRate').val());
+   var amt = parseFloat($('#sellAmt').val());
+   
+   $("#sellTotalQty").val((rate*amt).toFixed(8));
+   calcuSellProfit();
+ }
+ 
+ function setBuyQty() {
+  $('#buyTotalQty').val($('#myBuyBtcQty').text());
+  var qty = parseFloat($('#buyTotalQty').val());
+  var rate = parseFloat($("#buyRate").val());
+  
+  $("#buyAmt").val((qty/rate).toFixed(8));
+}
+
+function setBuyRate() {
+  $('#buyRate').val($('#buyPriceRate').text());
+  var rate = parseFloat($('#buyRate').val());
+  var amt = parseFloat($("#buyAmt").val());
+  
+  $("#buyTotalQty").val(rate*amt);
+}
+
+function setSellRate() {
+  $('#sellRate').val($('#sellPriceRate').text());
+  var rate = parseFloat($('#sellRate').val());
+  var amt = parseFloat($("#sellAmt").val());
+  
+  $("#sellTotalQty").val((rate*amt).toFixed(8));
+  
+  calcuSellProfit();
+}
+
+$("#buyRate").bind("propertychange input",function(){
+  var rate = parseFloat($(this).val());
+  var amt = parseFloat($("#buyAmt").val());
+  
+  $("#buyTotalQty").val((rate*amt).toFixed(8));
+});
+
+$("#buyTotalQty").bind("propertychange input",function(){
+  var qty = parseFloat($(this).val());
+  var rate = parseFloat($("#buyRate").val());
+  
+  $("#buyAmt").val((qty/rate).toFixed(8));
+});
+
+$("#buyAmt").bind("propertychange input",function(){
+  var rate = parseFloat($('#buyRate').val());
+  var amt = parseFloat($(this).val());
+  
+  $("#buyTotalQty").val((rate*amt).toFixed(8));
+});
+
+$("#sellRate").bind("propertychange input",function(){
+  var rate = parseFloat($(this).val());
+  var amt = parseFloat($("#sellAmt").val());
+  
+  $("#sellTotalQty").val((rate*amt).toFixed(8));
+  
+  calcuSellProfit();
+});
+
+$("#sellTotalQty").bind("propertychange input",function(){
+  var qty = parseFloat($(this).val());
+  var rate = parseFloat($('#sellRate').val());
+  
+  $("#sellAmt").val((qty/rate).toFixed(8));
+  
+  calcuSellProfit();
+});
+
+$("#sellAmt").bind("propertychange input",function(){
+  var rate = parseFloat($('#sellRate').val());
+  var amt = parseFloat($(this).val());
+  
+  $("#sellTotalQty").val((rate*amt).toFixed(8));
+  
+  calcuSellProfit();
+});
+
+$(".sellInput").change(function(){
+  calcuSellProfit();
+});
+
+$('#realtimeDataTable table').on('order.dt', function () {
+    returnTicker();
+});
+
+function calcuSellProfit() {
+  var boughtAvgPrice = $('#BTC_'+$('#sellCoinName').text()+'_vrate').text();
+  var sellRate = parseFloat($('#sellRate').val());
+  var sellQty = $("#sellAmt").val();
+  sellQty = sellQty==''?'0':sellQty;
+  boughtAvgPrice = parseFloat(boughtAvgPrice).toFixed(8);
+  sellQty = parseFloat(sellQty).toFixed(8);
+
+  var profit = ((sellRate-boughtAvgPrice)*sellQty).toFixed(8);
+  $('#sellProfit').html(profit);
+  if (profit>0) {
+    $('#sellProfit').addClass('text-success').removeClass('text-danger');
+  }else if (profit<0){
+    $('#sellProfit').addClass('text-danger').removeClass('text-success');
+  }else{
+   $('#sellProfit').removeClass('text-danger').removeClass('text-success');
+ }
+}
+</script>
+<!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>飞特币 -- 社交化加密币投顾平台</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="./logo/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <link rel="shortcut icon" sizes="196x196" href="./logo/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/styles/app.min.css">
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+</head>
+<body>
+  <div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+  <div class="center-block w-xxl w-auto-xs p-y-md">
+    <div class="navbar">
+      <div class="pull-center">
+        <div ui-include="'../views/blocks/navbar.brand.html'"></div>
+      </div>
+    </div>
+    <div class="p-a-md box-color r box-shadow-z1 text-color m-a">
+      <div class="m-b text-sm">
+        登陆您的飞特币账户
+      </div>
+        <div class="md-form-group float-label">
+          <input id="nameOrphone" onblur="checknameOrphone(this.value)"
+          type="text" class="md-input"  style="width: 90%;" required>
+          <i id="nameOrphone_i"></i>
+          <span style="font-size: 12px;" id="nameOrphoneMsg"></span>
+          <label>用户名/手机</label>
+        </div>
+        <div class="md-form-group float-label">
+          <input id="signPwd" onblur="checksignPwd(this.value)"
+          type="password" class="md-input"  style="width: 90%;" required>
+          <i id="signPwd_i"></i>
+          <span style="font-size: 12px;" id="signPwdMsg"></span>
+          <label>密码</label>
+        </div>      
+        <button id="signinbtn" onclick="signin()" type="button" class="btn primary btn-block p-x-md">登陆</button>
+      <div class="md-form-group float-label">
+       <a href class="btn btn-icon btn-social rounded btn-social-colored green pull-right" style="margin-right: 20%;" title="Wechat" >
+        <i class="fa fa-wechat"></i>
+        <i class="fa fa-wechat"></i>
+    </a>
+
+    <a href class="btn btn-icon btn-social rounded btn-social-colored blue-400 pull-left" style="margin-left: 20%;" title="QQ" >
+        <i class="fa fa-qq"></i>
+        <i class="fa fa-qq"></i>
+    </a>
+    </div> 
+    </div>
+    <div class="p-v-lg text-center">
+      <div class="m-b"><a ui-sref="access.forgot-password" href="forgot-password.html" class="text-primary _600">忘记密码?</a></div>
+      <div>还没有账号? <a ui-sref="access.signup" href="signup.html" class="text-primary _600">注册</a></div>
+    </div>
+  </div>
+
+<!-- ############ LAYOUT END-->
+
+  </div>
+  <!-- MODAL -->
+  <div id="signModal" class="modal fade" data-backdrop="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center p-lg">
+        <p id="modalMsg" style="font-size:20px;"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+</div>
+<script src="scripts/app.html.js"></script>
+<script src="scripts/sign.js"></script>
+</body>
+</html>
