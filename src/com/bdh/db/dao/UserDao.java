@@ -42,7 +42,7 @@ public class UserDao {
 		try {
 			conn = DBUtil.getInstance().getConnection();
 			stmt = conn.createStatement();
-			String sql = "select * from apis,exchang where apis.flag=1 and apis.isEnable=1 and apis.exchangid=exchang.exchangid";
+			String sql = " select * from apis,exchang where apis.flag=1 and apis.isEnable=1 and apis.exchangid=exchang.exchangid ";
 			List<Exchang> ds = DBUtil.getInstance().convert(stmt.executeQuery(sql), Exchang.class);
 			for (Exchang api : ds) {
 				String kid = api.getUserid() + "_" + api.getLogo();
@@ -88,7 +88,7 @@ public class UserDao {
 				stmts = conn.createStatement();
 				StringBuilder beffer= new StringBuilder();
 				beffer.append("insert into setting(userid) ");
-				beffer.append("values('");
+				beffer.append(" values('");
 		        beffer.append(FunctionSet.filt(userId));
 		        beffer.append("')");
 		        if(stmts.executeUpdate(beffer.toString()) > 0){
